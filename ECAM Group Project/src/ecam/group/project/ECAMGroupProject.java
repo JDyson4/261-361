@@ -2,6 +2,10 @@
  * IST 261/361
  * ECAMGroupProject.java
  * Purpose: 
+ * 
+ * @version 1.0
+ * @since 1/26/21
+ * 
  */
 package ecam.group.project;
 
@@ -15,7 +19,9 @@ public class ECAMGroupProject {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        System.out.println("Yo");
+        
     }
     
 }
