@@ -20,6 +20,7 @@ public class ECAMGroupProject {
      */
     public static void main(String[] args) {
         System.out.println("John was here");
+        System.out.println("River was here");
     }
     
 }
