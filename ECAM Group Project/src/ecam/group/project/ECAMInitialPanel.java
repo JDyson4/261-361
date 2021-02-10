@@ -5,6 +5,16 @@
  */
 package ecam.group.project;
 
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+
 /**
  *
  * @author RIVER
@@ -39,21 +49,21 @@ public class ECAMInitialPanel extends javax.swing.JPanel {
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
 
-        setBackground(new java.awt.Color(0, 51, 204));
+        setBackground(new java.awt.Color(0, 102, 204));
         setForeground(new java.awt.Color(51, 51, 51));
 
-        jButton1.setBackground(new java.awt.Color(204, 204, 0));
+        jButton1.setBackground(new java.awt.Color(153, 153, 153));
         jButton1.setFont(new java.awt.Font("Impact", 0, 16)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("Human Resources");
 
-        jButton2.setBackground(new java.awt.Color(204, 0, 204));
+        jButton2.setBackground(new java.awt.Color(153, 153, 153));
         jButton2.setFont(new java.awt.Font("Impact", 0, 16)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
         jButton2.setText("Manufacturing");
         jButton2.setPreferredSize(new java.awt.Dimension(190, 125));
 
-        jButton3.setBackground(new java.awt.Color(0, 204, 0));
+        jButton3.setBackground(new java.awt.Color(153, 153, 153));
         jButton3.setFont(new java.awt.Font("Impact", 0, 16)); // NOI18N
         jButton3.setForeground(new java.awt.Color(255, 255, 255));
         jButton3.setText("Sales");
@@ -64,7 +74,7 @@ public class ECAMInitialPanel extends javax.swing.JPanel {
             }
         });
 
-        jButton4.setBackground(new java.awt.Color(204, 0, 0));
+        jButton4.setBackground(new java.awt.Color(153, 153, 153));
         jButton4.setFont(new java.awt.Font("Impact", 0, 16)); // NOI18N
         jButton4.setForeground(new java.awt.Color(255, 255, 255));
         jButton4.setText("Engineering");
