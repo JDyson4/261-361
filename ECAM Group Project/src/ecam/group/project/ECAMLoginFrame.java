@@ -92,7 +92,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
 
         password.setBackground(new java.awt.Color(102, 102, 255));
         password.setForeground(new java.awt.Color(255, 255, 255));
-        password.setText("password");
+        password.setText("Password");
         password.setBorder(null);
         password.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
@@ -194,7 +194,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
 
     private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
         if (password.getPassword().length == 0) {
-            password.setText("Username");
+            password.setText("Password");
         }
     }//GEN-LAST:event_passwordFocusLost
 
@@ -205,7 +205,9 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameMouseClicked
 
     private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
-        password.setText("");
+        if ("Password".equals(String.valueOf(password.getPassword()))){
+            password.setText("");
+        }
     }//GEN-LAST:event_passwordMouseClicked
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
