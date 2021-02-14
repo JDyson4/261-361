@@ -18,6 +18,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         username.setCaretPosition(0);
+        password.setEchoChar((char) 0);
     }
 
     /**
@@ -86,6 +87,11 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         username.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 usernameActionPerformed(evt);
+            }
+        });
+        username.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                usernameKeyPressed(evt);
             }
         });
         jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 210, 30));
@@ -199,6 +205,12 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusLost
 
     private void usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseClicked
+        //"Password" is the text in the password field then text in password field text is revealed
+        //Text is hidden if text in the password field does not equal "Password"
+        if ("Password".equals(String.valueOf(password.getPassword()))){
+            password.setEchoChar((char) 0);
+        }
+        //if "Username" is the text in the username field then username field text is set blank
         if ("Username".equals(username.getText())){
             username.setText("");
         }
@@ -207,12 +219,19 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
         if ("Password".equals(String.valueOf(password.getPassword()))){
             password.setText("");
+            password.setEchoChar((char)0x2022); //this will display '•' for every character in the password
         }
     }//GEN-LAST:event_passwordMouseClicked
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
         
     }//GEN-LAST:event_passwordActionPerformed
+
+    private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
+        if ("Username".equals(username.getText())){
+            username.setText("");
+        }
+    }//GEN-LAST:event_usernameKeyPressed
 
     /**
      * @param args the command line arguments
