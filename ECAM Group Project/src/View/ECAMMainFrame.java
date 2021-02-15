@@ -12,7 +12,6 @@ package View;
 public class ECAMMainFrame extends javax.swing.JFrame {
 
     ECAMInitialPanel initialPanel = new ECAMInitialPanel();
-    ECAMLoginPanel loginPanel = new ECAMLoginPanel();
     
     /**
      * Creates new form ECAMMainFrame
@@ -21,6 +20,7 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         initialPanel.setBounds(-2,0,850,500);
+        setSize(850,500);
         getContentPane().add(initialPanel);
         setResizable(false);
         setVisible(true);

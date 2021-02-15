@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package ecam.group.project;
+package View;
 
 /**
  *
@@ -116,6 +116,11 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         password.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 passwordActionPerformed(evt);
+            }
+        });
+        password.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                passwordKeyPressed(evt);
             }
         });
         jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 210, 30));
@@ -232,6 +237,13 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
             username.setText("");
         }
     }//GEN-LAST:event_usernameKeyPressed
+
+    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+        if ("Password".equals(String.valueOf(password.getPassword()))){
+            password.setText("");
+            password.setEchoChar((char)0x2022); //this will display '•' for every character in the password
+        }
+    }//GEN-LAST:event_passwordKeyPressed
 
     /**
      * @param args the command line arguments

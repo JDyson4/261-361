@@ -80,10 +80,10 @@ public class ECAMInitialPanel extends javax.swing.JPanel {
         jButton4.setText("Engineering");
 
         jLabel1.setBackground(new java.awt.Color(255, 255, 102));
-        jLabel1.setFont(new java.awt.Font("Impact", 1, 72)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Haettenschweiler", 1, 72)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("      ECAM Data Manager ");
+        jLabel1.setText("      ECAM Co. Data Manager ");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
