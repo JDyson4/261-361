@@ -13,8 +13,8 @@ import java.sql.*;
  * @author jpdys
  */
 public class ECAMController {
-        private String className=null;
-    private static String url=null;
+    private String className = null;
+    private static String url = null;
     private static String user = null;
     private static String password = null;
     
@@ -40,6 +40,26 @@ public class ECAMController {
         catch (Exception e) {
             System.out.println("Failed to load driver.");
             return;
+        }
+         try
+        {
+            Connection con = DriverManager.getConnection(url,user,password);     
+                
+            Statement stmt = con.createStatement();
+
+                String testString = ("INSERT INTO Aircraft VALUES (1234)");
+                       
+                stmt.execute(testString);
+                                
+            System.out.println("Inserted Aircraft value");
+        
+            stmt.close();
+        
+            con.close();
+        }
+        catch (Exception e) 
+        {
+            System.out.println(e);
         }
     }
     
