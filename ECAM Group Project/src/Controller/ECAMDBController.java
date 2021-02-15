@@ -13,31 +13,30 @@ import java.sql.*;
  * @author jpdys
  */
 public class ECAMDBController {
-    private String className = null;
-    private static String url = null;
-    private static String user = null;
-    private static String password = null;
-    
-    public ECAMDBController() {
+    public static void main(String[] args) {
+        String className = null;
+        String url = null;
+        String user = null;
+        String password = null;
+        
         try {
             ResourceBundle resources;
             InputStream in = null;
             ResourceBundle newResources;
 
             className = "org.apache.derby.jdbc.ClientDriver";
-            url = "jdbc:derby://192.168.1.62:1527/ECAMProjectDB";
+            url = "jdbc:derby://localhost:1527/ECAMProjectDB";
             user = "app";
             password = "app";
         }
         catch (Exception exp) {
             System.out.println("Couldn't load resources." + exp);
             System.exit(-1);
-        }
-        
+        }        
         try {
             Class.forName(className);
         }
-        catch (Exception e) {
+        catch (ClassNotFoundException e) {
             System.out.println("Failed to load driver.");
             return;
         }
@@ -47,24 +46,17 @@ public class ECAMDBController {
                 
             Statement stmt = con.createStatement();
 
-                String testString = ("INSERT INTO Aircraft VALUES (1234)");
-                       
+                String testString = ("INSERT INTO Aircraft VALUES (1234)");                      
                 stmt.execute(testString);
                                 
             System.out.println("Inserted Aircraft value");
         
-            stmt.close();
-        
+            stmt.close();        
             con.close();
         }
         catch (Exception e) 
         {
             System.out.println(e);
         }
-    }
-    public static void main(String[] args){
-        ECAMDBController c = new ECAMDBController();
-    }
-    
-    
+    }  
 }
