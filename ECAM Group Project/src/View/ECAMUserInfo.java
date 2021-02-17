@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Model;
+package View;
 
 import java.util.HashMap;
 
@@ -13,11 +13,15 @@ import java.util.HashMap;
  */
 public class ECAMUserInfo {
     
-    HashMap<String,String> userInfo = new HashMap<String,String>();
+    private HashMap<String,String> userInfo = new HashMap<String,String>();
     
-    ECAMUserInfo() {
+    public ECAMUserInfo() {
         userInfo.put("rwm5661", "noiceCar102!");
         userInfo.put("jvd5799", "jdyson");
         userInfo.put("can26", "susieq");
+    }
+    
+    protected HashMap<String,String> getUserInfo() {
+        return userInfo;
     }
 }
