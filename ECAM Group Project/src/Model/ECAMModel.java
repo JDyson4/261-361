@@ -5,21 +5,16 @@
  */
 package Model;
 
-import java.util.HashMap;
-
 /**
  *
  * @author RIVER
  */
 public class ECAMModel {
     
-    ECAMUserInfo eCAMUserInfo;
     
-    ECAMModel() {
-        eCAMUserInfo = new ECAMUserInfo();
-    }
     
-    protected HashMap getUserInfo() {
-        return eCAMUserInfo.userInfo;
+    public ECAMModel() {
+        //
     }
+
 }

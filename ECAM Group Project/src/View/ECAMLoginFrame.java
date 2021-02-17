@@ -5,20 +5,25 @@
  */
 package View;
 
+import java.awt.event.KeyEvent;
+import java.util.HashMap;
+import javax.swing.JOptionPane;
+//
 /**
  *
  * @author RIVER
  */
 public class ECAMLoginFrame extends javax.swing.JFrame {
     
-    /**
-     * Creates new form ECAMLoginFrame
-     */
-    public ECAMLoginFrame() {
+    private HashMap<String,String> userInfo = new HashMap<String,String>();
+    
+    public ECAMLoginFrame(HashMap<String,String> userInfoOrig) {
+        userInfo = userInfoOrig;
         initComponents();
-        this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         username.setCaretPosition(0);
         password.setEchoChar((char) 0);
+        setVisible(true);
     }
 
     /**
@@ -40,6 +45,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         jSeparator2 = new javax.swing.JSeparator();
         signIn = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -159,6 +165,12 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 30, 40));
 
+        jLabel3.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(255, 0, 51));
+        jLabel3.setToolTipText("");
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 240, 20));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -182,7 +194,19 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
-
+        String userID = username.getText();
+        String passcode = String.valueOf(password.getPassword());
+        
+        if(userInfo.containsKey(userID)) {
+            if (userInfo.get(userID).equals(passcode)) {
+                this.dispose();
+                ECAMMainFrame mainFrame = new ECAMMainFrame();
+            } else {
+                jLabel3.setText("Username or password incorrect");
+            }
+        } else {
+            jLabel3.setText("Username does not exist");
+        }
     }//GEN-LAST:event_signInActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
@@ -236,6 +260,21 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         if ("Username".equals(username.getText())){
             username.setText("");
         }
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String userID = username.getText();
+            String passcode = String.valueOf(password.getPassword());
+        
+            if(userInfo.containsKey(userID)) {
+                if (userInfo.get(userID).equals(passcode)) {
+                    this.dispose();
+                    ECAMMainFrame mainFrame = new ECAMMainFrame();
+                } else {
+                    jLabel3.setText("Username or password incorrect");
+                }
+            } else {
+                jLabel3.setText("Username does not exist");
+            }
+        }
     }//GEN-LAST:event_usernameKeyPressed
 
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
@@ -243,46 +282,28 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
             password.setText("");
             password.setEchoChar((char)0x2022); //this will display '•' for every character in the password
         }
+        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            String userID = username.getText();
+            String passcode = String.valueOf(password.getPassword());
+        
+            if(userInfo.containsKey(userID)) {
+                if (userInfo.get(userID).equals(passcode)) {
+                    this.dispose();
+                    ECAMMainFrame mainFrame = new ECAMMainFrame();
+                } else {
+                    jLabel3.setText("Username or password incorrect");
+                }
+            } else {
+                jLabel3.setText("Username does not exist");
+            }
+        }
     }//GEN-LAST:event_passwordKeyPressed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(ECAMLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(ECAMLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(ECAMLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(ECAMLoginFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new ECAMLoginFrame().setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;

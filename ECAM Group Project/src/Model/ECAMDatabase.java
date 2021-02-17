@@ -10,5 +10,5 @@ package Model;
  * @author RIVER
  */
 public class ECAMDatabase {
-    
+    //
 }
