@@ -14,7 +14,7 @@ import javax.imageio.ImageIO;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JLabel;
-//
+//System.out.println("Hi Catie");
 /**
  *
  * @author RIVER

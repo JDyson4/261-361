@@ -12,7 +12,7 @@ package View;
 public class ECAMMainFrame extends javax.swing.JFrame {
 
     ECAMInitialPanel initialPanel = new ECAMInitialPanel();
-    //
+    //System.out.println("Hi Catie");
     /**
      * Creates new form ECAMMainFrame
      */

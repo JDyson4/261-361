@@ -12,7 +12,7 @@ import java.util.HashMap;
  * @author RIVER
  */
 public class ECAMUserInfo {
-    //
+    //System.out.println("Hi Catie");
     private HashMap<String,String> userInfo = new HashMap<String,String>();
     
     public ECAMUserInfo() {
