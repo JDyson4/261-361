@@ -28,6 +28,6 @@ public class ECAMController {
         ECAMModel model = new ECAMModel();
         ECAMView view = new ECAMView();
         ECAMController controller = new ECAMController(model, view);
-        System.out.println("Hi Catie");
+        System.out.println("Hi River");
     }
 }
