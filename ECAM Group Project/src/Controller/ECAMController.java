@@ -23,6 +23,7 @@ public class ECAMController {
         this.model = model;
         this.view = view;
         System.out.println("John wasn't here");
+        System.out.println("Catie also wasn't here");
     }
     
     public static void main(String[] args) {
