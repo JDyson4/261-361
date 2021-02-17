@@ -22,7 +22,7 @@ public class ECAMController {
     public ECAMController(ECAMModel model, ECAMView view) {
         this.model = model;
         this.view = view;
-        System.out.println("Catie was here");
+        System.out.println("John was here");
     }
     
     public static void main(String[] args) {
