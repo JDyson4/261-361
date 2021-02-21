@@ -7,7 +7,6 @@ package View;
 
 import java.awt.event.KeyEvent;
 import java.util.HashMap;
-import javax.swing.JOptionPane;
 //System.out.println("Hi Catie");
 /**
  *
@@ -51,7 +50,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         setBackground(new java.awt.Color(255, 255, 255));
         setUndecorated(true);
 
-        jPanel1.setBackground(new java.awt.Color(153, 153, 255));
+        jPanel1.setBackground(new java.awt.Color(3, 37, 78));
         jPanel1.setPreferredSize(new java.awt.Dimension(325, 0));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -67,13 +66,13 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         jLabel4.setText("Data Manager");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 170, 230, -1));
 
-        jPanel2.setBackground(new java.awt.Color(102, 102, 255));
+        jPanel2.setBackground(new java.awt.Color(192, 197, 193));
         jPanel2.setFocusable(false);
         jPanel2.setPreferredSize(new java.awt.Dimension(325, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        username.setBackground(new java.awt.Color(102, 102, 255));
-        username.setForeground(new java.awt.Color(255, 255, 255));
+        username.setBackground(new java.awt.Color(192, 197, 193));
+        username.setForeground(new java.awt.Color(3, 37, 78));
         username.setText("Username");
         username.setToolTipText("");
         username.setBorder(null);
@@ -102,8 +101,8 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         });
         jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 210, 30));
 
-        password.setBackground(new java.awt.Color(102, 102, 255));
-        password.setForeground(new java.awt.Color(255, 255, 255));
+        password.setBackground(new java.awt.Color(192, 197, 193));
+        password.setForeground(new java.awt.Color(3, 37, 78));
         password.setText("Password");
         password.setBorder(null);
         password.addFocusListener(new java.awt.event.FocusAdapter() {
@@ -131,16 +130,18 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         });
         jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 210, 30));
 
+        jSeparator1.setForeground(new java.awt.Color(3, 37, 78));
         jSeparator1.setMinimumSize(new java.awt.Dimension(50, 30));
         jSeparator1.setPreferredSize(new java.awt.Dimension(50, 50));
         jPanel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 140, 210, 30));
 
+        jSeparator2.setForeground(new java.awt.Color(3, 37, 78));
         jSeparator2.setMinimumSize(new java.awt.Dimension(50, 30));
         jSeparator2.setPreferredSize(new java.awt.Dimension(50, 50));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 210, 30));
 
-        signIn.setBackground(new java.awt.Color(105, 105, 255));
-        signIn.setForeground(new java.awt.Color(255, 255, 255));
+        signIn.setBackground(new java.awt.Color(192, 197, 193));
+        signIn.setForeground(new java.awt.Color(3, 37, 78));
         signIn.setText("Sign In");
         signIn.setBorder(null);
         signIn.setFocusable(false);
@@ -153,9 +154,9 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         });
         jPanel2.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 70, 25));
 
-        jLabel1.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel1.setBackground(new java.awt.Color(192, 197, 193));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(3, 37, 78));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("X");
         jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -165,11 +166,11 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         });
         jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 30, 40));
 
-        jLabel3.setBackground(new java.awt.Color(102, 102, 255));
+        jLabel3.setBackground(new java.awt.Color(165, 1, 4));
         jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 51));
         jLabel3.setToolTipText("");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 260, 240, 20));
+        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -202,7 +203,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
                 this.dispose();
                 ECAMMainFrame mainFrame = new ECAMMainFrame();
             } else {
-                jLabel3.setText("Username or password incorrect");
+                jLabel3.setText("Password is incorrect");
             }
         } else {
             jLabel3.setText("Username does not exist");
@@ -269,7 +270,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
                     this.dispose();
                     ECAMMainFrame mainFrame = new ECAMMainFrame();
                 } else {
-                    jLabel3.setText("Username or password incorrect");
+                    jLabel3.setText("Password is incorrect");
                 }
             } else {
                 jLabel3.setText("Username does not exist");
@@ -291,7 +292,7 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
                     this.dispose();
                     ECAMMainFrame mainFrame = new ECAMMainFrame();
                 } else {
-                    jLabel3.setText("Username or password incorrect");
+                    jLabel3.setText("Password is incorrect");
                 }
             } else {
                 jLabel3.setText("Username does not exist");
