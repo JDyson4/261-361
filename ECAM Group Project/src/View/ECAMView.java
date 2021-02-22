@@ -12,7 +12,7 @@ import java.util.HashMap;
  * @author RIVER
  */
 public class ECAMView {
-    //System.out.println("Hi Catie");
+    
     private ECAMLoginFrame login;
     private ECAMMainFrame mainFrame;
     private HashMap<String,String> userInfoOrig = new ECAMUserInfo().getUserInfo();

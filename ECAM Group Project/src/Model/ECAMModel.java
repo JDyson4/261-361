@@ -11,10 +11,10 @@ package Model;
  */
 public class ECAMModel {
     
-    
+    ECAMDatabase db;
     
     public ECAMModel() {
-        //System.out.println("Hi Catie");
+        db = new ECAMDatabase();
     }
 
 }
