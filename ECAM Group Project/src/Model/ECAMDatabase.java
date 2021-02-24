@@ -15,6 +15,7 @@ import java.sql.Statement;
  * @author RIVER
  */
 public class ECAMDatabase {
+
      public ECAMDatabase () {
         
         String className = "org.apache.derby.jdbc.ClientDriver";
@@ -36,17 +37,11 @@ public class ECAMDatabase {
             System.out.println("We made it");
             Connection con = DriverManager.getConnection(url, user, password);
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT * from Inventory ORDER BY ProductName");
+            ResultSet rs = stmt.executeQuery("");
 
             while (rs.next())
             {
-                String product = rs.getString("");
-                String description = rs.getString("ProductDescription");
-
-                float price = rs.getFloat("Price");
-
-                System.out.println(product + " described by many as \"" + description +
-                        "\" is sold for $" + price);
+                
             }
             stmt.close();
             con.close();
