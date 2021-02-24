@@ -19,7 +19,7 @@ public class ECAMDatabase {
      public ECAMDatabase () {
         
         String className = "org.apache.derby.jdbc.ClientDriver";
-        String url = "jdbc:derby://192.168.1.62:1527/ECAMProjectDB";
+        String url = "jdbc:derby://192.168.1.29:1527/ECAMProjectDB";
         String user = "app";
         String password = "app";
 
@@ -34,8 +34,9 @@ public class ECAMDatabase {
         }
         try
         {
-            System.out.println("We made it");
+            System.out.println("Driver loaded");
             Connection con = DriverManager.getConnection(url, user, password);
+            System.out.println("Connected to DB");
             Statement stmt = con.createStatement();
             ResultSet rs = stmt.executeQuery("");
 
