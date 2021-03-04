@@ -18,31 +18,22 @@ public class ECAMDatabase {
 
      public ECAMDatabase () {
         
-        String className = "org.apache.derby.jdbc.ClientDriver";
-        String url = "jdbc:derby://192.168.1.29:1527/ECAMProjectDB";
-        String user = "app";
-        String password = "app";
+        String url = "jdbc:mysql://127.0.0.1:3306/riverdb";
+        String user = "root";
+        String password = "";
 
-        try
-        {
-            Class.forName(className);
-        }
-        catch (Exception e)
-        {
-            System.out.println(className + " driver failed to load.");
-            System.exit(-1);
-        }
         try
         {
             System.out.println("Driver loaded");
             Connection con = DriverManager.getConnection(url, user, password);
             System.out.println("Connected to DB");
             Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("");
+            ResultSet rs = stmt.executeQuery("SELECT Password FROM test WHERE Username = 'river1'");
 
             while (rs.next())
             {
-                
+                String queryPass = rs.getString("Password");
+                System.out.println("Password: " + queryPass);
             }
             stmt.close();
             con.close();
