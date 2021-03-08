@@ -1,5 +1,7 @@
 /**
- * 
+ * Aircraft.java
+ * IST 261/361
+ * Purpose: 
  */
 package Model;
 

@@ -1,21 +1,25 @@
 /**
- * 
+ * Employees.java
+ * IST 261/361
+ * Purpose: 
  */
 package Model;
+
+import java.util.ArrayList;
 
 /**
  *
  * @author jpdys
  */
 public class Employees {
-    private int employeeNo;
-    private String empFirstName;
-    private String empLastName;
-    private String skill;
-    private String jobTitle;
+    private ArrayList<Integer> employeeNo = new ArrayList<>();
+    private ArrayList<String> empFirstName = new ArrayList<>();
+    private ArrayList<String> empLastName = new ArrayList<>();
+    private ArrayList<String> skill = new ArrayList<>();
+    private ArrayList<String> jobTitle = new ArrayList<>();
     
-    public Employees (int empNo, String empFName, String empLName, 
-            String empSkill, String empJob) {
+    public Employees (ArrayList<Integer> empNo, ArrayList<String> empFName, ArrayList<String> empLName, 
+            ArrayList<String> empSkill, ArrayList<String> empJob) {
         employeeNo = empNo;
         empFirstName = empFName;
         empLastName = empLName;
@@ -26,70 +30,70 @@ public class Employees {
     /**
      * @return the employeeNo
      */
-    public int getEmployeeNo() {
+    public ArrayList<Integer> getEmployeeNo() {
         return employeeNo;
     }
 
     /**
      * @param employeeNo the employeeNo to set
      */
-    public void setEmployeeNo(int employeeNo) {
+    public void setEmployeeNo(ArrayList<Integer> employeeNo) {
         this.employeeNo = employeeNo;
     }
 
     /**
      * @return the empFirstName
      */
-    public String getEmpFirstName() {
+    public ArrayList<String> getEmpFirstName() {
         return empFirstName;
     }
 
     /**
      * @param empFirstName the empFirstName to set
      */
-    public void setEmpFirstName(String empFirstName) {
+    public void setEmpFirstName(ArrayList<String> empFirstName) {
         this.empFirstName = empFirstName;
     }
 
     /**
      * @return the empLastName
      */
-    public String getEmpLastName() {
+    public ArrayList<String> getEmpLastName() {
         return empLastName;
     }
 
     /**
      * @param empLastName the empLastName to set
      */
-    public void setEmpLastName(String empLastName) {
+    public void setEmpLastName(ArrayList<String> empLastName) {
         this.empLastName = empLastName;
     }
 
     /**
      * @return the skill
      */
-    public String getSkill() {
+    public ArrayList<String> getSkill() {
         return skill;
     }
 
     /**
      * @param skill the skill to set
      */
-    public void setSkill(String skill) {
+    public void setSkill(ArrayList<String> skill) {
         this.skill = skill;
     }
 
     /**
      * @return the jobTitle
      */
-    public String getJobTitle() {
+    public ArrayList<String> getJobTitle() {
         return jobTitle;
     }
 
     /**
      * @param jobTitle the jobTitle to set
      */
-    public void setJobTitle(String jobTitle) {
+    public void setJobTitle(ArrayList<String> jobTitle) {
         this.jobTitle = jobTitle;
     }
 }
