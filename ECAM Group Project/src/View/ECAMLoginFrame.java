@@ -5,7 +5,6 @@
  */
 package View;
 
-import java.awt.event.KeyEvent;
 import java.util.HashMap;
 
 /**
@@ -195,23 +194,11 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_usernameActionPerformed
 
     private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
-        String userID = username.getText();
-        String passcode = String.valueOf(password.getPassword());
-        
-        if(userInfo.containsKey(userID)) {
-            if (userInfo.get(userID).equals(passcode)) {
-                this.dispose();
-                ECAMMainFrame mainFrame = new ECAMMainFrame();
-            } else {
-                jLabel3.setText("Password is incorrect");
-            }
-        } else {
-            jLabel3.setText("Username does not exist");
-        }
+        //
     }//GEN-LAST:event_signInActionPerformed
 
     private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
-        System.exit(0);
+        //
     }//GEN-LAST:event_jLabel1MouseClicked
 
     private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
@@ -223,34 +210,19 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordFocusGained
 
     private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
-        if ("".equals(username.getText())) {
-            username.setText("Username");
-        }
+        //
     }//GEN-LAST:event_usernameFocusLost
 
     private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
-        if (password.getPassword().length == 0) {
-            password.setText("Password");
-        }
+        //
     }//GEN-LAST:event_passwordFocusLost
 
     private void usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseClicked
-        //"Password" is the text in the password field then text in password field text is revealed
-        //Text is hidden if text in the password field does not equal "Password"
-        if ("Password".equals(String.valueOf(password.getPassword()))){
-            password.setEchoChar((char) 0);
-        }
-        //if "Username" is the text in the username field then username field text is set blank
-        if ("Username".equals(username.getText())){
-            username.setText("");
-        }
+        //
     }//GEN-LAST:event_usernameMouseClicked
 
     private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
-        if ("Password".equals(String.valueOf(password.getPassword()))){
-            password.setText("");
-            password.setEchoChar((char)0x2022); //this will display '•' for every character in the password
-        }
+        //
     }//GEN-LAST:event_passwordMouseClicked
 
     private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
@@ -258,48 +230,12 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     }//GEN-LAST:event_passwordActionPerformed
 
     private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
-        if ("Username".equals(username.getText())){
-            username.setText("");
-        }
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            String userID = username.getText();
-            String passcode = String.valueOf(password.getPassword());
-        
-            if(userInfo.containsKey(userID)) {
-                if (userInfo.get(userID).equals(passcode)) {
-                    this.dispose();
-                    ECAMMainFrame mainFrame = new ECAMMainFrame();
-                } else {
-                    jLabel3.setText("Password is incorrect");
-                }
-            } else {
-                jLabel3.setText("Username does not exist");
-            }
-        }
+        //
     }//GEN-LAST:event_usernameKeyPressed
 
     private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
-        if ("Password".equals(String.valueOf(password.getPassword()))){
-            password.setText("");
-            password.setEchoChar((char)0x2022); //this will display '•' for every character in the password
-        }
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER) {
-            String userID = username.getText();
-            String passcode = String.valueOf(password.getPassword());
-        
-            if(userInfo.containsKey(userID)) {
-                if (userInfo.get(userID).equals(passcode)) {
-                    this.dispose();
-                    ECAMMainFrame mainFrame = new ECAMMainFrame();
-                } else {
-                    jLabel3.setText("Password is incorrect");
-                }
-            } else {
-                jLabel3.setText("Username does not exist");
-            }
-        }
+        //
     }//GEN-LAST:event_passwordKeyPressed
-
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
@@ -314,4 +250,60 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     private javax.swing.JButton signIn;
     private javax.swing.JTextField username;
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @return the password
+     */
+    public javax.swing.JPasswordField getPassword() {
+        return password;
+    }
+
+    /**
+     * @return the signIn
+     */
+    public javax.swing.JButton getSignIn() {
+        return signIn;
+    }
+
+    /**
+     * @return the username
+     */
+    public javax.swing.JTextField getUsername() {
+        return username;
+    }
+
+    /**
+     * @return the jLabel2
+     */
+    public javax.swing.JLabel getjLabel2() {
+        return jLabel2;
+    }
+
+    /**
+     * @return the jLabel3
+     */
+    public javax.swing.JLabel getjLabel3() {
+        return jLabel3;
+    }
+
+    /**
+     * @return the jLabel4
+     */
+    public javax.swing.JLabel getjLabel4() {
+        return jLabel4;
+    }
+
+    /**
+     * @return the userInfo
+     */
+    public HashMap<String,String> getUserInfo() {
+        return userInfo;
+    }
 }

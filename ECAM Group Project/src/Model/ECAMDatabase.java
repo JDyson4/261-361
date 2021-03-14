@@ -8,39 +8,240 @@ package Model;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JTextField;
 
-/**
- *
- * @author RIVER
- */
 public class ECAMDatabase {
+    
+    public ECAMDatabase () {
 
-     public ECAMDatabase () {
-        
-        String url = "jdbc:mysql://127.0.0.1:3306/riverdb";
-        String user = "root";
-        String password = "";
-
-        try
-        {
-            System.out.println("Driver loaded");
-            Connection con = DriverManager.getConnection(url, user, password);
-            System.out.println("Connected to DB");
-            Statement stmt = con.createStatement();
-            ResultSet rs = stmt.executeQuery("SELECT Password FROM test WHERE Username = 'river1'");
-
-            while (rs.next())
-            {
-                String queryPass = rs.getString("Password");
-                System.out.println("Password: " + queryPass);
-            }
-            stmt.close();
-            con.close();
-        }
-        catch (Exception e)
-        {
-            System.out.println(e);
-        }
     }
+     
+    private Connection getConnection(){
+        Connection con = null;
+        
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/riverdb", "root", "");
+            System.out.println("Connected to DB");
+        } catch (SQLException ex) {
+            Logger.getLogger(ECAMDatabase.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+        return con;
+    }
+    
+    public ArrayList<CustomerPrograms> retrieveCustomerProgramsReport() throws SQLException {
+        ArrayList<CustomerPrograms> customerPrograms = new ArrayList<CustomerPrograms>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return customerPrograms;
+    }
+    
+    public ArrayList<CustomerPurchases> retrieveCustomerPurchasesReport() throws SQLException {
+        ArrayList<CustomerPurchases> customerPurchases = new ArrayList<CustomerPurchases>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return customerPurchases;
+    }
+    
+    public ArrayList<OpenOrders> retrieveOpenOrdersReport() throws SQLException {
+        ArrayList<OpenOrders> openOrders = new ArrayList<OpenOrders>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return openOrders;
+    }
+    
+    public ArrayList<PartsAircraft> retrievePartsAircraftReport() throws SQLException {
+        ArrayList<PartsAircraft> partsAircraft = new ArrayList<PartsAircraft>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return partsAircraft;
+    }
+    
+    public ArrayList<Parts> retrievePartsReport() throws SQLException {
+        ArrayList<Parts> parts = new ArrayList<Parts>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return parts;
+    }
+    
+    public ArrayList<AircraftParts> retrieveAircraftPartsReport() throws SQLException {
+        ArrayList<AircraftParts> aircraftParts = new ArrayList<AircraftParts>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return aircraftParts;
+    }
+    
+    public ArrayList<EngineerPrograms> retrieveEngineerProgramsReport() throws SQLException {
+        ArrayList<EngineerPrograms> engineerPrograms = new ArrayList<EngineerPrograms>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return engineerPrograms;
+    }
+    
+    public ArrayList<EngineerProgramHours> retrieveEngineerProgramHoursReport() throws SQLException {
+        ArrayList<EngineerProgramHours> engineerProgramHours = new ArrayList<EngineerProgramHours>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return engineerProgramHours;
+    }
+    
+    public ArrayList<EngineerEngineerDrawings> retrieveEngineerEngineerDrawingsReport() throws SQLException {
+        ArrayList<EngineerEngineerDrawings> engineerEngineerDrawings = new ArrayList<EngineerEngineerDrawings>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return engineerEngineerDrawings;
+    }
+    
+    public ArrayList<EngineerDrawingChanges> retrieveEngineerDrawingChangesReport() throws SQLException {
+        ArrayList<EngineerDrawingChanges> engineerDrawingChanges = new ArrayList<EngineerDrawingChanges>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        
+        while(rs.next()){
+            
+        }
+        
+        return engineerDrawingChanges;
+    }
+    
+    public void insertRowCustomerProgramsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowCustomerPurchasesReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowOpenOrdersReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowPartsAircraftReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowPartsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowAircraftPartsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowEngineerProgramsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowEngineerProgramHoursReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowEngineerEngineerDrawingsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    public void insertRowEngineerDrawingChangesReport(JTextField value) throws SQLException {
+        
+    }
+
 }

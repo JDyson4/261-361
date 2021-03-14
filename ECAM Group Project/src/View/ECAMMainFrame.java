@@ -5,23 +5,27 @@
  */
 package View;
 
+import java.awt.Container;
+
 /**
  *
  * @author RIVER
  */
 public class ECAMMainFrame extends javax.swing.JFrame {
-
-    ECAMInitialPanel initialPanel = new ECAMInitialPanel();
+    private Container container;
+    private ECAMInitialPanel initialPanel;
     
     /**
      * Creates new form ECAMMainFrame
      */
     public ECAMMainFrame() {
         initComponents();
+        container = getContentPane();
+        initialPanel = new ECAMInitialPanel();
         setLocationRelativeTo(null);
-        initialPanel.setBounds(-2,0,850,500);
+        initialPanel.setBounds(0,0,850,500);
         setSize(850,500);
-        getContentPane().add(initialPanel);
+        container.add(initialPanel);
         setResizable(false);
         setVisible(true);
     }
@@ -56,4 +60,11 @@ public class ECAMMainFrame extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
+
+    /**
+     * @return the initialPanel
+     */
+    public ECAMInitialPanel getInitialPanel() {
+        return initialPanel;
+    }
 }

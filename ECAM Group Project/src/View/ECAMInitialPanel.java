@@ -6,6 +6,7 @@
 package View;
 
 import java.awt.Image;
+import java.awt.event.ActionEvent;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.util.logging.Level;
@@ -20,6 +21,20 @@ import javax.swing.JLabel;
  * @author RIVER
  */
 public class ECAMInitialPanel extends javax.swing.JPanel {
+
+    /**
+     * @return the jLabel1
+     */
+    public javax.swing.JLabel getjLabel1() {
+        return jLabel1;
+    }
+
+    /**
+     * @return the jButton1
+     */
+    public javax.swing.JButton getjButton1() {
+        return jButton1;
+    }
 
     /**
      * Creates new form ECAMInitialPanel
