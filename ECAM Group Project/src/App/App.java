@@ -8,6 +8,8 @@ package App;
 import Controller.ECAMController;
 import Model.ECAMModel;
 import View.ECAMView;
+import java.awt.*;
+import javax.swing.*;
 
 /**
  *
