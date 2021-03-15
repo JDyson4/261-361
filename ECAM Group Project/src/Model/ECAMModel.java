@@ -11,24 +11,22 @@ package Model;
  */
 public class ECAMModel {
     
-    public ECAMDatabase db;
+    private ECAMDatabase db;
+    private ECAMUserInfo userInfo;
     
     public ECAMModel() {
         db = new ECAMDatabase();
+        userInfo = new ECAMUserInfo();
     }
 
     /**
      * @return the db
      */
-    public ECAMDatabase getDb() {
+    public ECAMDatabase getDB() {
         return db;
     }
 
-    /**
-     * @param db the db to set
-     */
-    public void setDb(ECAMDatabase db) {
-        this.db = db;
+    public ECAMUserInfo getUserInfo() {
+        return userInfo;
     }
-
 }
