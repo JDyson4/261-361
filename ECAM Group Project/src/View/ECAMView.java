@@ -14,10 +14,9 @@ import java.util.HashMap;
 public class ECAMView {
     
     private ECAMLoginFrame login;
-    private HashMap<String,String> userInfoOrig = new ECAMUserInfo().getUserInfo();
     
     public ECAMView() {
-        login = new ECAMLoginFrame(userInfoOrig);
+        login = new ECAMLoginFrame();
     }
 
     /**

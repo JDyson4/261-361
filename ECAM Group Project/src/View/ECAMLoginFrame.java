@@ -5,18 +5,13 @@
  */
 package View;
 
-import java.util.HashMap;
-
 /**
  *
  * @author RIVER
  */
 public class ECAMLoginFrame extends javax.swing.JFrame {
     
-    private HashMap<String,String> userInfo = new HashMap<String,String>();
-    
-    public ECAMLoginFrame(HashMap<String,String> userInfoOrig) {
-        userInfo = userInfoOrig;
+    public ECAMLoginFrame() {
         initComponents();
         setLocationRelativeTo(null);
         usernameField.setCaretPosition(0);
@@ -284,12 +279,5 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
      */
     public javax.swing.JLabel getLoginMessageLabel() {
         return loginMessageLabel;
-    }
-
-    /**
-     * @return the userInfo
-     */
-    public HashMap<String,String> getUserInfo() {
-        return userInfo;
     }
 }
