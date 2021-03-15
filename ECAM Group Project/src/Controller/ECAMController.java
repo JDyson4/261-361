@@ -100,8 +100,8 @@ public class ECAMController {
                     String userID = view.getLogin().getUsernameField().getText();
                     String passcode = String.valueOf(view.getLogin().getPasswordField().getPassword());
         
-                    if(view.getLogin().getUserInfo().containsKey(userID)) {
-                        if (view.getLogin().getUserInfo().get(userID).equals(passcode)) {
+                    if(model.getUserInfo().getUser().containsKey(userID)) {
+                        if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                             view.getLogin().dispose();
                             ECAMMainFrame mf = new ECAMMainFrame();
                             mf.getInitialPanel().getjButton1().addActionListener(
@@ -115,10 +115,10 @@ public class ECAMController {
                                     }    
                             );
                         } else {
-                            view.getLogin().getExitLabel().setText("Password is incorrect");
+                            view.getLogin().getLoginMessageLabel().setText("Password is incorrect");
                         }
                     } else {
-                        view.getLogin().getExitLabel().setText("Username does not exist");
+                        view.getLogin().getLoginMessageLabel().setText("Username does not exist");
                     }
                 }
             }
@@ -137,8 +137,8 @@ public class ECAMController {
                         String userID = view.getLogin().getUsernameField().getText();
                         String passcode = String.valueOf(view.getLogin().getPasswordField().getPassword());
 
-                        if(view.getLogin().getUserInfo().containsKey(userID)) {
-                            if (view.getLogin().getUserInfo().get(userID).equals(passcode)) {
+                        if(model.getUserInfo().getUser().containsKey(userID)) {
+                            if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                                 view.getLogin().dispose();
                                 ECAMMainFrame mf = new ECAMMainFrame();
                                 mf.getInitialPanel().getjButton1().addActionListener(
@@ -152,10 +152,10 @@ public class ECAMController {
                                     }    
                                 );
                             } else {
-                                view.getLogin().getExitLabel().setText("Password is incorrect");
+                                view.getLogin().getLoginMessageLabel().setText("Password is incorrect");
                             }
                         } else {
-                            view.getLogin().getExitLabel().setText("Username does not exist");
+                            view.getLogin().getLoginMessageLabel().setText("Username does not exist");
                         }
                     }
                 }
@@ -176,8 +176,8 @@ public class ECAMController {
                         String userID = view.getLogin().getUsernameField().getText();
                         String passcode = String.valueOf(view.getLogin().getPasswordField().getPassword());
 
-                        if(view.getLogin().getUserInfo().containsKey(userID)) {
-                            if (view.getLogin().getUserInfo().get(userID).equals(passcode)) {
+                        if(model.getUserInfo().getUser().containsKey(userID)) {
+                            if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                                 view.getLogin().dispose();
                                 ECAMMainFrame mf = new ECAMMainFrame();
                                 mf.getInitialPanel().getjButton1().addActionListener(
@@ -191,10 +191,10 @@ public class ECAMController {
                                     }    
                                 );
                             } else {
-                                view.getLogin().getExitLabel().setText("Password is incorrect");
+                                view.getLogin().getLoginMessageLabel().setText("Password is incorrect");
                             }
                         } else {
-                            view.getLogin().getExitLabel().setText("Username does not exist");
+                            view.getLogin().getLoginMessageLabel().setText("Username does not exist");
                         }
                     }
                 }
