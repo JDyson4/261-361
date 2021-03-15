@@ -19,8 +19,8 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         userInfo = userInfoOrig;
         initComponents();
         setLocationRelativeTo(null);
-        username.setCaretPosition(0);
-        password.setEchoChar((char) 0);
+        usernameField.setCaretPosition(0);
+        passwordField.setEchoChar((char) 0);
         setVisible(true);
     }
 
@@ -37,13 +37,13 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         jLabel2 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         jPanel2 = new javax.swing.JPanel();
-        username = new javax.swing.JTextField();
-        password = new javax.swing.JPasswordField();
+        usernameField = new javax.swing.JTextField();
+        passwordField = new javax.swing.JPasswordField();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
-        signIn = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
+        signInButton = new javax.swing.JButton();
+        exitLabel = new javax.swing.JLabel();
+        loginMessageLabel = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -70,64 +70,64 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         jPanel2.setPreferredSize(new java.awt.Dimension(325, 0));
         jPanel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        username.setBackground(new java.awt.Color(192, 197, 193));
-        username.setForeground(new java.awt.Color(3, 37, 78));
-        username.setText("Username");
-        username.setToolTipText("");
-        username.setBorder(null);
-        username.addFocusListener(new java.awt.event.FocusAdapter() {
+        usernameField.setBackground(new java.awt.Color(192, 197, 193));
+        usernameField.setForeground(new java.awt.Color(3, 37, 78));
+        usernameField.setText("Username");
+        usernameField.setToolTipText("");
+        usernameField.setBorder(null);
+        usernameField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                usernameFocusGained(evt);
+                usernameFieldFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                usernameFocusLost(evt);
+                usernameFieldFocusLost(evt);
             }
         });
-        username.addMouseListener(new java.awt.event.MouseAdapter() {
+        usernameField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                usernameMouseClicked(evt);
+                usernameFieldMouseClicked(evt);
             }
         });
-        username.addActionListener(new java.awt.event.ActionListener() {
+        usernameField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                usernameActionPerformed(evt);
+                usernameFieldActionPerformed(evt);
             }
         });
-        username.addKeyListener(new java.awt.event.KeyAdapter() {
+        usernameField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                usernameKeyPressed(evt);
+                usernameFieldKeyPressed(evt);
             }
         });
-        jPanel2.add(username, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 210, 30));
+        jPanel2.add(usernameField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 110, 210, 30));
 
-        password.setBackground(new java.awt.Color(192, 197, 193));
-        password.setForeground(new java.awt.Color(3, 37, 78));
-        password.setText("Password");
-        password.setBorder(null);
-        password.addFocusListener(new java.awt.event.FocusAdapter() {
+        passwordField.setBackground(new java.awt.Color(192, 197, 193));
+        passwordField.setForeground(new java.awt.Color(3, 37, 78));
+        passwordField.setText("Password");
+        passwordField.setBorder(null);
+        passwordField.addFocusListener(new java.awt.event.FocusAdapter() {
             public void focusGained(java.awt.event.FocusEvent evt) {
-                passwordFocusGained(evt);
+                passwordFieldFocusGained(evt);
             }
             public void focusLost(java.awt.event.FocusEvent evt) {
-                passwordFocusLost(evt);
+                passwordFieldFocusLost(evt);
             }
         });
-        password.addMouseListener(new java.awt.event.MouseAdapter() {
+        passwordField.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                passwordMouseClicked(evt);
+                passwordFieldMouseClicked(evt);
             }
         });
-        password.addActionListener(new java.awt.event.ActionListener() {
+        passwordField.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                passwordActionPerformed(evt);
+                passwordFieldActionPerformed(evt);
             }
         });
-        password.addKeyListener(new java.awt.event.KeyAdapter() {
+        passwordField.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                passwordKeyPressed(evt);
+                passwordFieldKeyPressed(evt);
             }
         });
-        jPanel2.add(password, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 210, 30));
+        jPanel2.add(passwordField, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 160, 210, 30));
 
         jSeparator1.setForeground(new java.awt.Color(3, 37, 78));
         jSeparator1.setMinimumSize(new java.awt.Dimension(50, 30));
@@ -139,37 +139,37 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         jSeparator2.setPreferredSize(new java.awt.Dimension(50, 50));
         jPanel2.add(jSeparator2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 190, 210, 30));
 
-        signIn.setBackground(new java.awt.Color(192, 197, 193));
-        signIn.setForeground(new java.awt.Color(3, 37, 78));
-        signIn.setText("Sign In");
-        signIn.setBorder(null);
-        signIn.setFocusable(false);
-        signIn.setPreferredSize(new java.awt.Dimension(30, 15));
-        signIn.setRequestFocusEnabled(false);
-        signIn.addActionListener(new java.awt.event.ActionListener() {
+        signInButton.setBackground(new java.awt.Color(192, 197, 193));
+        signInButton.setForeground(new java.awt.Color(3, 37, 78));
+        signInButton.setText("Sign In");
+        signInButton.setBorder(null);
+        signInButton.setFocusable(false);
+        signInButton.setPreferredSize(new java.awt.Dimension(30, 15));
+        signInButton.setRequestFocusEnabled(false);
+        signInButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                signInActionPerformed(evt);
+                signInButtonActionPerformed(evt);
             }
         });
-        jPanel2.add(signIn, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 70, 25));
+        jPanel2.add(signInButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 220, 70, 25));
 
-        jLabel1.setBackground(new java.awt.Color(192, 197, 193));
-        jLabel1.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(3, 37, 78));
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("X");
-        jLabel1.addMouseListener(new java.awt.event.MouseAdapter() {
+        exitLabel.setBackground(new java.awt.Color(192, 197, 193));
+        exitLabel.setFont(new java.awt.Font("Segoe UI", 0, 18)); // NOI18N
+        exitLabel.setForeground(new java.awt.Color(3, 37, 78));
+        exitLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        exitLabel.setText("X");
+        exitLabel.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jLabel1MouseClicked(evt);
+                exitLabelMouseClicked(evt);
             }
         });
-        jPanel2.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 30, 40));
+        jPanel2.add(exitLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 0, 30, 40));
 
-        jLabel3.setBackground(new java.awt.Color(165, 1, 4));
-        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 0, 51));
-        jLabel3.setToolTipText("");
-        jPanel2.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 210, 20));
+        loginMessageLabel.setBackground(new java.awt.Color(165, 1, 4));
+        loginMessageLabel.setFont(new java.awt.Font("Tahoma", 0, 10)); // NOI18N
+        loginMessageLabel.setForeground(new java.awt.Color(255, 0, 51));
+        loginMessageLabel.setToolTipText("");
+        jPanel2.add(loginMessageLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 200, 210, 20));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -189,115 +189,101 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void usernameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameActionPerformed
+    private void usernameFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_usernameFieldActionPerformed
 
-    }//GEN-LAST:event_usernameActionPerformed
+    }//GEN-LAST:event_usernameFieldActionPerformed
 
-    private void signInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInActionPerformed
+    private void signInButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_signInButtonActionPerformed
         //
-    }//GEN-LAST:event_signInActionPerformed
+    }//GEN-LAST:event_signInButtonActionPerformed
 
-    private void jLabel1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel1MouseClicked
+    private void exitLabelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_exitLabelMouseClicked
         //
-    }//GEN-LAST:event_jLabel1MouseClicked
+    }//GEN-LAST:event_exitLabelMouseClicked
 
-    private void usernameFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusGained
+    private void usernameFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFieldFocusGained
 
-    }//GEN-LAST:event_usernameFocusGained
+    }//GEN-LAST:event_usernameFieldFocusGained
 
-    private void passwordFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusGained
+    private void passwordFieldFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusGained
 
-    }//GEN-LAST:event_passwordFocusGained
+    }//GEN-LAST:event_passwordFieldFocusGained
 
-    private void usernameFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFocusLost
+    private void usernameFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_usernameFieldFocusLost
         //
-    }//GEN-LAST:event_usernameFocusLost
+    }//GEN-LAST:event_usernameFieldFocusLost
 
-    private void passwordFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFocusLost
+    private void passwordFieldFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_passwordFieldFocusLost
         //
-    }//GEN-LAST:event_passwordFocusLost
+    }//GEN-LAST:event_passwordFieldFocusLost
 
-    private void usernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameMouseClicked
+    private void usernameFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_usernameFieldMouseClicked
         //
-    }//GEN-LAST:event_usernameMouseClicked
+    }//GEN-LAST:event_usernameFieldMouseClicked
 
-    private void passwordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordMouseClicked
+    private void passwordFieldMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_passwordFieldMouseClicked
         //
-    }//GEN-LAST:event_passwordMouseClicked
+    }//GEN-LAST:event_passwordFieldMouseClicked
 
-    private void passwordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordActionPerformed
+    private void passwordFieldActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_passwordFieldActionPerformed
         
-    }//GEN-LAST:event_passwordActionPerformed
+    }//GEN-LAST:event_passwordFieldActionPerformed
 
-    private void usernameKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameKeyPressed
+    private void usernameFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_usernameFieldKeyPressed
         //
-    }//GEN-LAST:event_usernameKeyPressed
+    }//GEN-LAST:event_usernameFieldKeyPressed
 
-    private void passwordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordKeyPressed
+    private void passwordFieldKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_passwordFieldKeyPressed
         //
-    }//GEN-LAST:event_passwordKeyPressed
+    }//GEN-LAST:event_passwordFieldKeyPressed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel exitLabel;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
-    private javax.swing.JPasswordField password;
-    private javax.swing.JButton signIn;
-    private javax.swing.JTextField username;
+    private javax.swing.JLabel loginMessageLabel;
+    private javax.swing.JPasswordField passwordField;
+    private javax.swing.JButton signInButton;
+    private javax.swing.JTextField usernameField;
     // End of variables declaration//GEN-END:variables
 
     /**
      * @return the jLabel1
      */
-    public javax.swing.JLabel getjLabel1() {
-        return jLabel1;
+    public javax.swing.JLabel getExitLabel() {
+        return exitLabel;
     }
 
     /**
      * @return the password
      */
-    public javax.swing.JPasswordField getPassword() {
-        return password;
+    public javax.swing.JPasswordField getPasswordField() {
+        return passwordField;
     }
 
     /**
      * @return the signIn
      */
-    public javax.swing.JButton getSignIn() {
-        return signIn;
+    public javax.swing.JButton getSignInButton() {
+        return signInButton;
     }
 
     /**
      * @return the username
      */
-    public javax.swing.JTextField getUsername() {
-        return username;
-    }
-
-    /**
-     * @return the jLabel2
-     */
-    public javax.swing.JLabel getjLabel2() {
-        return jLabel2;
+    public javax.swing.JTextField getUsernameField() {
+        return usernameField;
     }
 
     /**
      * @return the jLabel3
      */
-    public javax.swing.JLabel getjLabel3() {
-        return jLabel3;
-    }
-
-    /**
-     * @return the jLabel4
-     */
-    public javax.swing.JLabel getjLabel4() {
-        return jLabel4;
+    public javax.swing.JLabel getLoginMessageLabel() {
+        return loginMessageLabel;
     }
 
     /**
