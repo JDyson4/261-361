@@ -37,8 +37,6 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         deptsComboBox.addItem("Manufacturing");
         deptsComboBox.addItem("Human Resources");
         deptsComboBox.addItem("Engineering");
-        reportComboBox.addItem("User Report");
-        reportComboBox.addItem("User2 Report");
         deptsComboBox.setSelectedIndex(-1);
         reportComboBox.setSelectedIndex(-1);
         reportDataTable.setModel(dtm);
