@@ -45,7 +45,7 @@ public class ECAMDatabase {
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
         
         while(rs.next()){
-            
+        
         }
         
         return customerPrograms;
