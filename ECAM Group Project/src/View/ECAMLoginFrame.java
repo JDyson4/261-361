@@ -5,6 +5,8 @@
  */
 package View;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author RIVER
@@ -13,10 +15,12 @@ public class ECAMLoginFrame extends javax.swing.JFrame {
     
     public ECAMLoginFrame() {
         initComponents();
-        setLocationRelativeTo(null);
+        ImageIcon img = new ImageIcon("FinalLogo2.jpg");
+        this.setIconImage(img.getImage());
+        this.setLocationRelativeTo(null);
         usernameField.setCaretPosition(0);
         passwordField.setEchoChar((char) 0);
-        setVisible(true);
+        this.setVisible(true);
     }
 
     /**

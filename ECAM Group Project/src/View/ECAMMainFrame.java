@@ -29,7 +29,7 @@ public class ECAMMainFrame extends javax.swing.JFrame {
      */
     public ECAMMainFrame() {
         initComponents();
-        ImageIcon img = new ImageIcon("C:\\Users\\RIVER\\Documents\\2_Spring2021\\IST 361\\FinalLogo2.jpg");
+        ImageIcon img = new ImageIcon("FinalLogo2.jpg");
         this.setIconImage(img.getImage());
         this.setTitle("Data Manager");
         this.setResizable(false);
@@ -38,7 +38,6 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         deptsComboBox.addItem("Human Resources");
         deptsComboBox.addItem("Engineering");
         deptsComboBox.setSelectedIndex(-1);
-
         reportDataTable.setModel(dtm);
         reportDataTable.getTableHeader().setResizingAllowed(false);
         this.setLocationRelativeTo(null);
