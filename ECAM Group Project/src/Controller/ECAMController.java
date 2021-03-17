@@ -103,16 +103,62 @@ public class ECAMController {
                     if(model.getUserInfo().getUser().containsKey(userID)) {
                         if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                             view.getLogin().dispose();
+                            //ActionListeners MainFrame
                             ECAMMainFrame mf = new ECAMMainFrame();
-                            mf.getInitialPanel().getjButton1().addActionListener(
-                                    new ActionListener()
-                                    {
-                                        @Override
-                                        public void actionPerformed(ActionEvent e)
-                                        {
-                                            mf.getInitialPanel().getjLabel1().setText("River Was Here");
+                            mf.getGoButton().addActionListener(
+                                new ActionListener()
+                                {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        mf.getDtm().setRowCount(0);
+                                        if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
+                                            && "User Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
+                                            mf.getRowData1();
+                                        } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
+                                                   && "User2 Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
+                                            mf.getRowData2();
                                         }
-                                    }    
+                                        mf.getReportDataTable().setModel(mf.getDtm());
+                                    }
+                                }
+                            );
+                            mf.getSaveItem().addActionListener(
+                                new ActionListener()
+                                {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        System.out.println("Save as... clicked");
+                                    }
+                                }
+                            );
+                            mf.getExitItem().addActionListener(
+                                new ActionListener()
+                                {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        System.exit(0);
+                                    } 
+                                }
+                            );
+                            mf.getInsertItem().addActionListener(
+                                new ActionListener()
+                                {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        System.out.println("Insert row... clicked");
+                                    }
+                                }
+                            );
+                            mf.getDeleteItem().addActionListener(
+                                new ActionListener()
+                                {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        System.out.println("Delete row... clicked");
+                                    }
+                                }
                             );
                         } else {
                             view.getLogin().getLoginMessageLabel().setText("Password is incorrect");
@@ -140,16 +186,62 @@ public class ECAMController {
                         if(model.getUserInfo().getUser().containsKey(userID)) {
                             if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                                 view.getLogin().dispose();
+                                //ActionListeners on MainFrame
                                 ECAMMainFrame mf = new ECAMMainFrame();
-                                mf.getInitialPanel().getjButton1().addActionListener(
+                                mf.getGoButton().addActionListener(
                                     new ActionListener()
                                     {
                                         @Override
-                                        public void actionPerformed(ActionEvent e)
-                                        {
-                                            mf.getInitialPanel().getjLabel1().setText("River Was Here");
+                                        public void actionPerformed(ActionEvent e) {
+                                            mf.getDtm().setRowCount(0);
+                                            if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
+                                                && "User Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
+                                                mf.getRowData1();
+                                            } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
+                                                       && "User2 Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
+                                                mf.getRowData2();
+                                            }
+                                            mf.getReportDataTable().setModel(mf.getDtm());
                                         }
-                                    }    
+                                    }
+                                );
+                                mf.getSaveItem().addActionListener(
+                                    new ActionListener()
+                                        {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.out.println("Save as... clicked");
+                                        }
+                                    }
+                                );
+                                mf.getExitItem().addActionListener(
+                                    new ActionListener()
+                                    {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.exit(0);
+                                        } 
+                                    }
+                                );
+                                mf.getInsertItem().addActionListener(
+                                    new ActionListener()
+                                        {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.out.println("Insert row... clicked");
+                                        }
+                                    }
+                                );
+                                mf.getDeleteItem().addActionListener(
+                                    new ActionListener()
+                                        {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.out.println("Delete row... clicked");
+                                        }
+                                    }
                                 );
                             } else {
                                 view.getLogin().getLoginMessageLabel().setText("Password is incorrect");
@@ -179,16 +271,62 @@ public class ECAMController {
                         if(model.getUserInfo().getUser().containsKey(userID)) {
                             if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                                 view.getLogin().dispose();
+                                //ActionListener MainFrame
                                 ECAMMainFrame mf = new ECAMMainFrame();
-                                mf.getInitialPanel().getjButton1().addActionListener(
+                                mf.getGoButton().addActionListener(
                                     new ActionListener()
                                     {
                                         @Override
-                                        public void actionPerformed(ActionEvent e)
-                                        {
-                                            mf.getInitialPanel().getjLabel1().setText("River Was Here");
+                                        public void actionPerformed(ActionEvent e) {
+                                            mf.getDtm().setRowCount(0);
+                                            if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
+                                                && "User Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
+                                                mf.getRowData1();
+                                            } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
+                                                       && "User2 Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
+                                                mf.getRowData2();
+                                            }
+                                            mf.getReportDataTable().setModel(mf.getDtm());
                                         }
-                                    }    
+                                    }
+                                );
+                                mf.getSaveItem().addActionListener(
+                                    new ActionListener()
+                                        {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.out.println("Save as... clicked");
+                                        }
+                                    }
+                                );
+                                mf.getExitItem().addActionListener(
+                                    new ActionListener()
+                                    {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.exit(0);
+                                        } 
+                                    }
+                                );
+                                mf.getInsertItem().addActionListener(
+                                    new ActionListener()
+                                        {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.out.println("Insert row... clicked");
+                                        }
+                                    }
+                                );
+                                mf.getDeleteItem().addActionListener(
+                                    new ActionListener()
+                                        {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            System.out.println("Delete row... clicked");
+                                        }
+                                    }
                                 );
                             } else {
                                 view.getLogin().getLoginMessageLabel().setText("Password is incorrect");
