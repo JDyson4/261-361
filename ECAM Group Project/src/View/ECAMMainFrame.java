@@ -38,7 +38,7 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         deptsComboBox.addItem("Human Resources");
         deptsComboBox.addItem("Engineering");
         deptsComboBox.setSelectedIndex(-1);
-        reportComboBox.setSelectedIndex(-1);
+
         reportDataTable.setModel(dtm);
         reportDataTable.getTableHeader().setResizingAllowed(false);
         this.setLocationRelativeTo(null);
@@ -382,11 +382,15 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         deptsLabel.setForeground(new java.awt.Color(3, 37, 78));
         deptsLabel.setText("Department:");
 
+        deptsComboBox.setBackground(new java.awt.Color(240, 240, 240));
+        deptsComboBox.setForeground(new java.awt.Color(3, 37, 78));
         deptsComboBox.setFocusable(false);
 
         reportLabel.setForeground(new java.awt.Color(3, 37, 78));
         reportLabel.setText("Report:");
 
+        reportComboBox.setBackground(new java.awt.Color(240, 240, 240));
+        reportComboBox.setForeground(new java.awt.Color(3, 37, 78));
         reportComboBox.setFocusable(false);
         reportComboBox.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -394,7 +398,8 @@ public class ECAMMainFrame extends javax.swing.JFrame {
             }
         });
 
-        goButton.setForeground(new java.awt.Color(3, 37, 78));
+        goButton.setBackground(new java.awt.Color(3, 37, 78));
+        goButton.setForeground(new java.awt.Color(240, 240, 240));
         goButton.setText("Go");
         goButton.setFocusable(false);
         goButton.addActionListener(new java.awt.event.ActionListener() {
