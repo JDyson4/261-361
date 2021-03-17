@@ -112,11 +112,11 @@ public class ECAMController {
                                     public void actionPerformed(ActionEvent e) {
                                         mf.getDtm().setRowCount(0);
                                         if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                            && "User Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
                                             mf.getRowData1();
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "User2 Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                   && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
                                             mf.getRowData2();
                                         }
@@ -160,6 +160,35 @@ public class ECAMController {
                                     }
                                 }
                             );
+                            mf.getDeptsComboBox().addActionListener(
+                                new ActionListener()
+                                {
+                                    @Override
+                                    public void actionPerformed(ActionEvent e) {
+                                        mf.getReportComboBox().removeAllItems();
+                                        if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                        {
+                                            mf.getReportComboBox().addItem("Sales Report 1");
+                                            mf.getReportComboBox().addItem("Sales Report 2");
+                                            mf.getReportComboBox().addItem("Sales Report 3");
+                                        } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                        {
+                                            mf.getReportComboBox().addItem("Manufacturing Report 1");
+                                            mf.getReportComboBox().addItem("Manufacturing Report 2");
+                                            mf.getReportComboBox().addItem("Manufacturing Report 3");
+                                        } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                        {
+                                            mf.getReportComboBox().addItem("Human Resources Report 1");
+                                            mf.getReportComboBox().addItem("Human Resources Report 2");
+                                        } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                        {
+                                            mf.getReportComboBox().addItem("Engineering Report 1");
+                                            mf.getReportComboBox().addItem("Engineering Report 2");
+                                        }
+                                        mf.getReportComboBox().setSelectedIndex(-1);
+                                    }
+                                }
+                            );
                         } else {
                             view.getLogin().getLoginMessageLabel().setText("Password is incorrect");
                         }
@@ -195,11 +224,11 @@ public class ECAMController {
                                         public void actionPerformed(ActionEvent e) {
                                             mf.getDtm().setRowCount(0);
                                             if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                && "User Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
                                                 mf.getRowData1();
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "User2 Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                       && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
                                                 mf.getRowData2();
                                             }
@@ -240,6 +269,35 @@ public class ECAMController {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
                                             System.out.println("Delete row... clicked");
+                                        }
+                                    }
+                                );
+                                mf.getDeptsComboBox().addActionListener(
+                                    new ActionListener()
+                                    {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            mf.getReportComboBox().removeAllItems();
+                                            if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Sales Report 1");
+                                                mf.getReportComboBox().addItem("Sales Report 2");
+                                                mf.getReportComboBox().addItem("Sales Report 3");
+                                            } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Manufacturing Report 1");
+                                                mf.getReportComboBox().addItem("Manufacturing Report 2");
+                                                mf.getReportComboBox().addItem("Manufacturing Report 3");
+                                            } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Human Resources Report 1");
+                                                mf.getReportComboBox().addItem("Human Resources Report 2");
+                                            } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Engineering Report 1");
+                                                mf.getReportComboBox().addItem("Engineering Report 2");
+                                            }
+                                            mf.getReportComboBox().setSelectedIndex(-1);
                                         }
                                     }
                                 );
@@ -280,11 +338,11 @@ public class ECAMController {
                                         public void actionPerformed(ActionEvent e) {
                                             mf.getDtm().setRowCount(0);
                                             if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                && "User Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
                                                 mf.getRowData1();
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "User2 Report".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                       && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
                                                 mf.getRowData2();
                                             }
@@ -325,6 +383,35 @@ public class ECAMController {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
                                             System.out.println("Delete row... clicked");
+                                        }
+                                    }
+                                );
+                                mf.getDeptsComboBox().addActionListener(
+                                    new ActionListener()
+                                    {
+                                        @Override
+                                        public void actionPerformed(ActionEvent e) {
+                                            mf.getReportComboBox().removeAllItems();
+                                            if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Sales Report 1");
+                                                mf.getReportComboBox().addItem("Sales Report 2");
+                                                mf.getReportComboBox().addItem("Sales Report 3");
+                                            } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Manufacturing Report 1");
+                                                mf.getReportComboBox().addItem("Manufacturing Report 2");
+                                                mf.getReportComboBox().addItem("Manufacturing Report 3");
+                                            } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Human Resources Report 1");
+                                                mf.getReportComboBox().addItem("Human Resources Report 2");
+                                            } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
+                                            {
+                                                mf.getReportComboBox().addItem("Engineering Report 1");
+                                                mf.getReportComboBox().addItem("Engineering Report 2");
+                                            }
+                                            mf.getReportComboBox().setSelectedIndex(-1);
                                         }
                                     }
                                 );
