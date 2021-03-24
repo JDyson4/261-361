@@ -23,7 +23,7 @@ public class ECAMDatabase {
     
     private Connection getConnection(){
         Connection con = null;
-        
+        //
         try {
             Class.forName("com.mysql.jdbc.Driver");
         } catch (Exception ex) {
