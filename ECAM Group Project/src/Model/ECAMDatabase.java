@@ -30,7 +30,7 @@ public class ECAMDatabase {
             System.out.println("Driver failed to connect");
         }
         try {
-            con = DriverManager.getConnection("jdbc:mysql://y5-ist361.ad.psu.edu:3306/rwm5661", "rwm5661", "welcome");
+            con = DriverManager.getConnection("jdbc:mysql://y5-ist361.ad.psu.edu:3306/test", "jvd5799", "welcome");
             System.out.println("Connected to DB");
         } catch (SQLException ex) {
             Logger.getLogger(ECAMDatabase.class.getName()).log(Level.SEVERE, null, ex);
@@ -42,11 +42,11 @@ public class ECAMDatabase {
     public String getUsername() throws SQLException, ClassNotFoundException {
         Connection con = getConnection();
         Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT Username FROM Test WHERE Password = 'martinez'");
+        ResultSet rs = stmt.executeQuery("SELECT testCol1 FROM testtable2 WHERE testCol4 = 2000");
         
         String result = "";
         while(rs.next()){
-            result = rs.getString("Username");
+            result = rs.getString("testCol1");
         }
         
         return result;
