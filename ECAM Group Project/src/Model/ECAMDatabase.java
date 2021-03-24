@@ -20,18 +20,36 @@ public class ECAMDatabase {
     public ECAMDatabase () {
 
     }
-     
+    
     private Connection getConnection(){
         Connection con = null;
         
         try {
-            con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/riverdb", "root", "");
+            Class.forName("com.mysql.jdbc.Driver");
+        } catch (Exception ex) {
+            System.out.println("Driver failed to connect");
+        }
+        try {
+            con = DriverManager.getConnection("jdbc:mysql://y5-ist361.ad.psu.edu:3306/rwm5661", "rwm5661", "welcome");
             System.out.println("Connected to DB");
         } catch (SQLException ex) {
             Logger.getLogger(ECAMDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
         
         return con;
+    }
+    
+    public String getUsername() throws SQLException, ClassNotFoundException {
+        Connection con = getConnection();
+        Statement stmt = con.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT Username FROM Test WHERE Password = 'martinez'");
+        
+        String result = "";
+        while(rs.next()){
+            result = rs.getString("Username");
+        }
+        
+        return result;
     }
     
     public ArrayList<CustomerPrograms> retrieveCustomerProgramsReport() throws SQLException {
