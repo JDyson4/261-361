@@ -6,12 +6,9 @@
 package App;
 
 import Controller.ECAMController;
-import Model.ECAMDatabase;
 import Model.ECAMModel;
 import View.ECAMView;
-import java.awt.*;
 import java.sql.SQLException;
-import javax.swing.*;
 
 /**
  *
@@ -23,11 +20,9 @@ public class App {
      * @param args the command line arguments
      */
     public static void main(String[] args) throws SQLException, ClassNotFoundException {
-        //ECAMModel model = new ECAMModel();
-        //ECAMView view = new ECAMView();
-        //ECAMController controller = new ECAMController(model, view);
-        ECAMDatabase db = new ECAMDatabase();
-        System.out.println(db.getUsername());
+        ECAMModel model = new ECAMModel();
+        ECAMView view = new ECAMView();
+        ECAMController controller = new ECAMController(model, view);
     }
     
 }
