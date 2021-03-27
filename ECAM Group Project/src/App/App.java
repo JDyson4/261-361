@@ -6,6 +6,7 @@
 package App;
 
 import Controller.ECAMController;
+import Model.ECAMDatabase;
 import Model.ECAMModel;
 import View.ECAMView;
 import java.sql.SQLException;
@@ -23,6 +24,8 @@ public class App {
         ECAMModel model = new ECAMModel();
         ECAMView view = new ECAMView();
         ECAMController controller = new ECAMController(model, view);
+        ECAMDatabase db = new ECAMDatabase();
+        db.getUsername();
     }
     
 }
