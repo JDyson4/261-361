@@ -119,33 +119,141 @@ public class ECAMController {
                                     public void actionPerformed(ActionEvent e) {
                                         if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                             && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveCustomerProgramsReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveOpenOrdersReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            //TableModel code here
+                                                    && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                }
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) { 
+                                                   && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -263,31 +371,139 @@ public class ECAMController {
                                         public void actionPerformed(ActionEvent e) {
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                 && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveCustomerProgramsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveOpenOrdersReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
@@ -304,7 +520,6 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             }
-                                            //mf.getReportDataTable().setModel(mf.getDtm());
                                         }
                                     }
                                 );
@@ -410,31 +625,139 @@ public class ECAMController {
                                         public void actionPerformed(ActionEvent e) {
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                 && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveCustomerProgramsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveOpenOrdersReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                //TableModel code here
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
@@ -451,7 +774,6 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             }
-                                            //mf.getReportDataTable().setModel(mf.getDtm());
                                         }
                                     }
                                 );
