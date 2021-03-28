@@ -34,7 +34,6 @@ public class ECAMDatabase {
         }
         try {
             con = DriverManager.getConnection("jdbc:mysql://y5-ist361.ad.psu.edu:3306/rwm5661", "rwm5661", "welcome");
-            System.out.println("Connected to DB");
         } catch (SQLException ex) {
             Logger.getLogger(ECAMDatabase.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -83,21 +82,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrieveCustomerProgramsReport() throws SQLException {
-        ArrayList<CustomerPrograms> cprog = new ArrayList<CustomerPrograms>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Customer Programs Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<CustomerPrograms> cprogA = new ArrayList<CustomerPrograms>();
+        CustomerPrograms cprog;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] cprogRows = new Object[cprog.size()][8];
+        Object[][] cprogRows = new Object[cprogA.size()][8];
         
         //for loop here
         
@@ -117,21 +119,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrieveCustomerPurchasesReport() throws SQLException {
-        ArrayList<CustomerPurchases> cpurch = new ArrayList<CustomerPurchases>();
         
-        Connection con = getConnection();
+        Connection con = getConnection(); 
         Statement stmt;
         ResultSet rs;
+        
+        System.out.println("Retrieved Customer Purchases Report"); //For testing
         
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<CustomerPurchases> cpurchA = new ArrayList<CustomerPurchases>();
+        CustomerPurchases cpurch;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] cpurchRows = new Object[cpurch.size()][8];
+        Object[][] cpurchRows = new Object[cpurchA.size()][8];
         
         //for loop here
         
@@ -151,21 +156,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrieveOpenOrdersReport() throws SQLException {
-        ArrayList<OpenOrders> oo = new ArrayList<OpenOrders>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Open Orders Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<OpenOrders> ooA = new ArrayList<OpenOrders>();
+        OpenOrders oo;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] ooRows = new Object[oo.size()][8];
+        Object[][] ooRows = new Object[ooA.size()][8];
         
         //for loop here
         
@@ -185,21 +193,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrievePartsAircraftReport() throws SQLException {
-        ArrayList<PartsAircraft> pa = new ArrayList<PartsAircraft>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Parts to Aircraft Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<PartsAircraft> paA = new ArrayList<PartsAircraft>();
+        PartsAircraft pa;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] paRows = new Object[pa.size()][8];
+        Object[][] paRows = new Object[paA.size()][8];
         
         //for loop here
         
@@ -219,21 +230,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrievePartsReport() throws SQLException {
-        ArrayList<Parts> parts = new ArrayList<Parts>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Parts Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<Parts> partsA = new ArrayList<Parts>();
+        Parts parts;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] partsRows = new Object[parts.size()][8];
+        Object[][] partsRows = new Object[partsA.size()][8];
         
         //for loop here
         
@@ -253,21 +267,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrieveAircraftPartsReport() throws SQLException {
-        ArrayList<AircraftParts> ap = new ArrayList<AircraftParts>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Aircraft to Parts Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<AircraftParts> apA = new ArrayList<AircraftParts>();
+        AircraftParts ap;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] apRows = new Object[ap.size()][8];
+        Object[][] apRows = new Object[apA.size()][8];
         
         //for loop here
         
@@ -287,21 +304,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrieveEngineerProgramsReport() throws SQLException {
-        ArrayList<EngineerPrograms> ep = new ArrayList<EngineerPrograms>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Engineer to Program Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<EngineerPrograms> epA = new ArrayList<EngineerPrograms>();
+        EngineerPrograms ep;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] epRows = new Object[ep.size()][8];
+        Object[][] epRows = new Object[epA.size()][8];
         
         //for loop here
         
@@ -321,21 +341,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrieveEngineerProgramHoursReport() throws SQLException {
-        ArrayList<EngineerProgramHours> eph = new ArrayList<EngineerProgramHours>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Engineer to Program Hours Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<EngineerProgramHours> ephA = new ArrayList<EngineerProgramHours>();
+        EngineerProgramHours eph;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] ephRows = new Object[eph.size()][8];
+        Object[][] ephRows = new Object[ephA.size()][8];
         
         //for loop here
         
@@ -355,21 +378,24 @@ public class ECAMDatabase {
     }
     
     public AbstractTableModel retrieveEngineerEngineerDrawingsReport() throws SQLException {
-        ArrayList<EngineerEngineerDrawings> eed = new ArrayList<EngineerEngineerDrawings>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
+        System.out.println("Retrieved Engineer to Engineer Drawing Report"); //For testing
+        
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
+        ArrayList<EngineerEngineerDrawings> eedA = new ArrayList<EngineerEngineerDrawings>();
+        EngineerEngineerDrawings eed;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
         //column size needs changed; column size = 8
-        Object[][] eedRows = new Object[eed.size()][8];
+        Object[][] eedRows = new Object[eedA.size()][8];
         
         //for loop here
         
@@ -400,6 +426,8 @@ public class ECAMDatabase {
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
+        
+        System.out.println("Retrieved Engineer Drawing Changes Report"); //For testing
         
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT drawings.DrawingNo, "
