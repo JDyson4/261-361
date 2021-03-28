@@ -349,23 +349,47 @@ public class ECAMDatabase {
         System.out.println("Retrieved Engineer to Program Hours Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT employees.EmployeeNo, "
+                                    + "employees.EmployeeFName, "
+                                    + "employees.EmployeeLName, "
+                                    + "engineerprojects.EngineerHours, "
+                                    + "aircraft.ProgramNo, "
+                                    + "aircraft.ProgramName" 
+                             + "FROM employees " 
+                             + "JOIN engineerprojects "
+                                + "ON employees.EmployeeNo = engineerprojects.EmployeeNo "
+                             + "JOIN projects "
+                                + "ON engineerprojects.ProjectNo = projects.ProjectNo"
+                             + "JOIN aircraft " 
+                                + "ON projects.ProgramNo = aircraft.ProgramNo ");
         
         ArrayList<EngineerProgramHours> ephA = new ArrayList<EngineerProgramHours>();
         EngineerProgramHours eph;
-        while(rs.next()){ //<--store data in report object and add to arraylist
-            
+        while(rs.next()){ 
+            eph = new EngineerProgramHours(
+                rs.getInt("employees.EmployeeNo"),
+                rs.getString("employees.EmployeeFName"),
+                rs.getString("employees.EmployeeLName"),
+                rs.getInt("engineerprojects.EngineerHours"),
+                rs.getInt("aircraft.ProgramNo"),
+                rs.getString("aircraft.ProgramName")
+            );
+            ephA.add(eph);
         }
         
-        //column size needs changed; column size = 8
-        Object[][] ephRows = new Object[ephA.size()][8];
+        Object[][] ephRows = new Object[ephA.size()][6];
         
-        //for loop here
+        for (int i = 0; i < ephA.size(); i++){
+            ephRows[i][0] = ephA.get(i).getEmployeeNo();
+            ephRows[i][1] = ephA.get(i).getEmployeeFName();
+            ephRows[i][2] = ephA.get(i).getEmployeeLName();
+            ephRows[i][3] = ephA.get(i).getEngineerHours();
+            ephRows[i][4] = ephA.get(i).getProgramNo();
+            ephRows[i][5] = ephA.get(i).getProgramName();
+        }
         
-        //Names need updated
-        String[] ephColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] ephColumnNames = {"Employee No.","Employee FName","Employee LName",
+                                "Engineer Hours", "Program No.", "Program Name"};
         
         ReportTableModel rtm = new ReportTableModel(ephColumnNames,ephRows){
             @Override
@@ -386,25 +410,51 @@ public class ECAMDatabase {
         System.out.println("Retrieved Engineer to Engineer Drawing Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT employees.EmployeeNo, "
+                                    + "employees.EmployeeFName, "
+                                    + "employees.EmployeeLName, "
+                                    + "drawings.DrawingNo, "
+                                    + "drawings.Drawing "
+                             + "FROM employees "
+                             + "JOIN engineerdrawings "
+                                + "ON employees.EmployeeNo = engineerdrawings.EmployeeNo "
+                             + "JOIN drawings "
+                                + "ON drawings.DrawingNo = engineerdrawings.DrawingNo ");
         
         ArrayList<EngineerEngineerDrawings> eedA = new ArrayList<EngineerEngineerDrawings>();
         EngineerEngineerDrawings eed;
-        while(rs.next()){ //<--store data in report object and add to arraylist
-            
+        while(rs.next()){
+            eed = new EngineerEngineerDrawings(
+                rs.getInt("employees.EmployeeNo"),
+                rs.getString("employees.EmployeeFName"),
+                rs.getString("employees.EmployeeLName"),
+                rs.getInt("drawings.DrawingNo"),
+                rs.getBytes("drawings.Drawing")
+            );
+            eedA.add(eed);
         }
         
-        //column size needs changed; column size = 8
-        Object[][] eedRows = new Object[eedA.size()][8];
+        Object[][] eedRows = new Object[eedA.size()][5];
         
-        //for loop here
+        for(int i = 0; i < eedA.size(); i++)
+        {
+            eedRows[i][0] = eedA.get(i).getEmployeeNo();
+            eedRows[i][1] = eedA.get(i).getEmployeeFName();
+            eedRows[i][2] = eedA.get(i).getEmployeeLName();
+            eedRows[i][3] = eedA.get(i).getDrawingNo();
+            if (eedA.get(i).getDrawing() != null) {
+                ImageIcon drawing = new ImageIcon(
+                        new ImageIcon(eedA.get(i).getDrawing()).getImage()
+                                .getScaledInstance(160, 120, Image.SCALE_SMOOTH));
+                eedRows[i][4] = drawing;
+            } else {
+                eedRows[i][4] = null;
+            }
+        }
         
-        //Names need updated
-        String[] eedColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] eedColumnNames = {"Employee No.", "Employee FName", "Employee LName", "Drawing No.","Drawing"};
         
-        ReportTableModel rtm = new ReportTableModel(eedColumnNames,eedRows){
+        EngineerDrawingReportTableModel rtm = new EngineerDrawingReportTableModel(eedColumnNames,eedRows){
             @Override
             public boolean isCellEditable(int row, int column){
                 return false;
@@ -442,7 +492,7 @@ public class ECAMDatabase {
                              + "JOIN engineerdrawings "
                                 + "ON drawings.DrawingNo = engineerdrawings.DrawingNo "
                              + "JOIN employees "
-                                + "ON employees.EmployeeNo = engineerdrawings.EmployeeNo");
+                                + "ON employees.EmployeeNo = engineerdrawings.EmployeeNo ");
         
         ArrayList<EngineerDrawingChanges> edcA = new ArrayList<EngineerDrawingChanges>();
         EngineerDrawingChanges edc;
@@ -456,7 +506,7 @@ public class ECAMDatabase {
                 rs.getString("drawings.ReasonForChange"),
                 rs.getInt("employees.EmployeeNo"),
                 rs.getString("employees.EmployeeFName"),
-                rs.getString("employees.EmployeeFName")
+                rs.getString("employees.EmployeeLName")
             );
             edcA.add(edc);
         }
@@ -469,7 +519,7 @@ public class ECAMDatabase {
             if (edcA.get(i).getDrawing() != null) {
                 ImageIcon drawing = new ImageIcon(
                         new ImageIcon(edcA.get(i).getDrawing()).getImage()
-                                .getScaledInstance(150, 120, Image.SCALE_SMOOTH));
+                                .getScaledInstance(160, 120, Image.SCALE_SMOOTH));
                 edcRows[i][1] = drawing;
             } else {
                 edcRows[i][1] = null;
