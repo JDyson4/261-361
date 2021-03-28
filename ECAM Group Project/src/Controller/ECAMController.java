@@ -118,7 +118,7 @@ public class ECAMController {
                                     @Override
                                     public void actionPerformed(ActionEvent e) {
                                         if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                            && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                            && "Customers to Programs".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveCustomerProgramsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -133,7 +133,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Customers to Purchases".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -148,7 +148,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Open Orders".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveOpenOrdersReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -163,7 +163,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Parts to Aircraft".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -178,7 +178,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Parts".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -193,7 +193,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Aircraft to Parts".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -208,7 +208,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Engineers to Programs".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -223,7 +223,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Engineers to Program Hours".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -238,7 +238,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                    && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                    && "Engineers to Drawings".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -253,7 +253,7 @@ public class ECAMController {
                                                 Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                             }
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                   && "Drawing Changes to Engineers".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                 mf.getReportDataTable().setRowHeight(120);
@@ -315,22 +315,22 @@ public class ECAMController {
                                         mf.getReportComboBox().removeAllItems();
                                         if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                         {
-                                            mf.getReportComboBox().addItem("Sales Report 1");
-                                            mf.getReportComboBox().addItem("Sales Report 2");
-                                            mf.getReportComboBox().addItem("Sales Report 3");
+                                            mf.getReportComboBox().addItem("Customers to Programs");
+                                            mf.getReportComboBox().addItem("Customers to Purchases");
+                                            mf.getReportComboBox().addItem("Open Orders");
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                         {
-                                            mf.getReportComboBox().addItem("Manufacturing Report 1");
-                                            mf.getReportComboBox().addItem("Manufacturing Report 2");
-                                            mf.getReportComboBox().addItem("Manufacturing Report 3");
+                                            mf.getReportComboBox().addItem("Parts to Aircraft");
+                                            mf.getReportComboBox().addItem("Parts");
+                                            mf.getReportComboBox().addItem("Aircraft to Parts");
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                         {
-                                            mf.getReportComboBox().addItem("Human Resources Report 1");
-                                            mf.getReportComboBox().addItem("Human Resources Report 2");
+                                            mf.getReportComboBox().addItem("Engineers to Programs");
+                                            mf.getReportComboBox().addItem("Engineers to Program Hours");
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                         {
-                                            mf.getReportComboBox().addItem("Engineering Report 1");
-                                            mf.getReportComboBox().addItem("Engineering Report 2");
+                                            mf.getReportComboBox().addItem("Engineers to Drawings");
+                                            mf.getReportComboBox().addItem("Drawing Changes to Engineers");
                                         }
                                         mf.getReportComboBox().setSelectedIndex(-1);
                                     }
@@ -370,7 +370,7 @@ public class ECAMController {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                && "Customers to Programs".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveCustomerProgramsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -385,7 +385,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Customers to Purchases".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -400,7 +400,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Open Orders".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveOpenOrdersReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -415,7 +415,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Parts to Aircraft".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -430,7 +430,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Parts".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -445,7 +445,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Aircraft to Parts".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -460,7 +460,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Engineers to Programs".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -475,7 +475,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Engineers to Program Hours".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -490,7 +490,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Engineers to Drawings".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -505,7 +505,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                       && "Drawing Changes to Engineers".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -567,22 +567,22 @@ public class ECAMController {
                                             mf.getReportComboBox().removeAllItems();
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Sales Report 1");
-                                                mf.getReportComboBox().addItem("Sales Report 2");
-                                                mf.getReportComboBox().addItem("Sales Report 3");
+                                                mf.getReportComboBox().addItem("Customers to Programs");
+                                                mf.getReportComboBox().addItem("Customers to Purchases");
+                                                mf.getReportComboBox().addItem("Open Orders");
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Manufacturing Report 1");
-                                                mf.getReportComboBox().addItem("Manufacturing Report 2");
-                                                mf.getReportComboBox().addItem("Manufacturing Report 3");
+                                                mf.getReportComboBox().addItem("Parts to Aircraft");
+                                                mf.getReportComboBox().addItem("Parts");
+                                                mf.getReportComboBox().addItem("Aircraft to Parts");
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Human Resources Report 1");
-                                                mf.getReportComboBox().addItem("Human Resources Report 2");
+                                                mf.getReportComboBox().addItem("Engineers to Programs");
+                                                mf.getReportComboBox().addItem("Engineers to Program Hours");
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Engineering Report 1");
-                                                mf.getReportComboBox().addItem("Engineering Report 2");
+                                                mf.getReportComboBox().addItem("Engineers to Drawings");
+                                                mf.getReportComboBox().addItem("Drawing Changes to Engineers");
                                             }
                                             mf.getReportComboBox().setSelectedIndex(-1);
                                         }
@@ -624,7 +624,7 @@ public class ECAMController {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                && "Customers to Programs".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveCustomerProgramsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -639,7 +639,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Customers to Purchases".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -654,7 +654,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Open Orders".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveOpenOrdersReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -669,7 +669,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Parts to Aircraft".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -684,7 +684,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Parts".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -699,7 +699,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Aircraft to Parts".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -714,7 +714,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Engineers to Programs".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -729,7 +729,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Engineers to Program Hours".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -744,7 +744,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                        && "Engineers to Drawings".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -759,7 +759,7 @@ public class ECAMController {
                                                     Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
                                                 }
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                       && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
+                                                       && "Drawing Changes to Engineers".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
@@ -821,22 +821,22 @@ public class ECAMController {
                                             mf.getReportComboBox().removeAllItems();
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Sales Report 1");
-                                                mf.getReportComboBox().addItem("Sales Report 2");
-                                                mf.getReportComboBox().addItem("Sales Report 3");
+                                                mf.getReportComboBox().addItem("Customers to Programs");
+                                                mf.getReportComboBox().addItem("Customers to Purchases");
+                                                mf.getReportComboBox().addItem("Open Orders");
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Manufacturing Report 1");
-                                                mf.getReportComboBox().addItem("Manufacturing Report 2");
-                                                mf.getReportComboBox().addItem("Manufacturing Report 3");
+                                                mf.getReportComboBox().addItem("Parts to Aircraft");
+                                                mf.getReportComboBox().addItem("Parts");
+                                                mf.getReportComboBox().addItem("Aircraft to Parts");
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Human Resources Report 1");
-                                                mf.getReportComboBox().addItem("Human Resources Report 2");
+                                                mf.getReportComboBox().addItem("Engineers to Programs");
+                                                mf.getReportComboBox().addItem("Engineers to Program Hours");
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem())))
                                             {
-                                                mf.getReportComboBox().addItem("Engineering Report 1");
-                                                mf.getReportComboBox().addItem("Engineering Report 2");
+                                                mf.getReportComboBox().addItem("Engineers to Drawings");
+                                                mf.getReportComboBox().addItem("Drawing Changes to Engineers");
                                             }
                                             mf.getReportComboBox().setSelectedIndex(-1);
                                         }
