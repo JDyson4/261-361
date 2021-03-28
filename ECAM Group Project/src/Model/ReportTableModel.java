@@ -5,6 +5,7 @@
  */
 package Model;
 
+import javax.swing.Icon;
 import javax.swing.table.AbstractTableModel;
 
 /**
@@ -41,4 +42,8 @@ public class ReportTableModel extends AbstractTableModel {
         return this.columnNames[col];
     }
     
+    @Override
+    public Class getColumnClass(int column){
+        return getValueAt(0,column).getClass();
+    }
 }
