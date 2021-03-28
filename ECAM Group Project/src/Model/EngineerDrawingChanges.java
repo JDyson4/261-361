@@ -11,4 +11,135 @@ package Model;
  */
 public class EngineerDrawingChanges {
     
+    public int drawingNo;
+    public byte[] drawing;
+    public double version;
+    public String versionDateTime;
+    public String reasonForChange;
+    public int employeeNo;
+    public String employeeFName;
+    public String employeeLName;
+    
+    public EngineerDrawingChanges(int dNO, byte[] d, double v, String vDT, String rFC, int eN, String eFN, String eLN) {
+        this.drawingNo = dNO;
+        this.drawing = d;
+        this.version = v;
+        this.versionDateTime = vDT;
+        this.reasonForChange = rFC;
+        this.employeeNo = eN;
+        this.employeeFName = eFN;
+        this.employeeLName = eLN;
+    }
+
+    /**
+     * @return the drawingNo
+     */
+    public int getDrawingNo() {
+        return drawingNo;
+    }
+
+    /**
+     * @param drawingNo the drawingNo to set
+     */
+    public void setDrawingNo(int drawingNo) {
+        this.drawingNo = drawingNo;
+    }
+
+    /**
+     * @return the drawing
+     */
+    public byte[] getDrawing() {
+        return drawing;
+    }
+
+    /**
+     * @param drawing the drawing to set
+     */
+    public void setDrawing(byte[] drawing) {
+        this.drawing = drawing;
+    }
+
+    /**
+     * @return the version
+     */
+    public double getVersion() {
+        return version;
+    }
+
+    /**
+     * @param version the version to set
+     */
+    public void setVersion(double version) {
+        this.version = version;
+    }
+
+    /**
+     * @return the versionDateTime
+     */
+    public String getVersionDateTime() {
+        return versionDateTime;
+    }
+
+    /**
+     * @param versionDateTime the versionDateTime to set
+     */
+    public void setVersionDateTime(String versionDateTime) {
+        this.versionDateTime = versionDateTime;
+    }
+
+    /**
+     * @return the reasonForChange
+     */
+    public String getReasonForChange() {
+        return reasonForChange;
+    }
+
+    /**
+     * @param reasonForChange the reasonForChange to set
+     */
+    public void setReasonForChange(String reasonForChange) {
+        this.reasonForChange = reasonForChange;
+    }
+
+    /**
+     * @return the employeeNo
+     */
+    public int getEmployeeNo() {
+        return employeeNo;
+    }
+
+    /**
+     * @param employeeNo the employeeNo to set
+     */
+    public void setEmployeeNo(int employeeNo) {
+        this.employeeNo = employeeNo;
+    }
+
+    /**
+     * @return the employeeFName
+     */
+    public String getEmployeeFName() {
+        return employeeFName;
+    }
+
+    /**
+     * @param employeeFName the employeeFName to set
+     */
+    public void setEmployeeFName(String employeeFName) {
+        this.employeeFName = employeeFName;
+    }
+
+    /**
+     * @return the employeeLName
+     */
+    public String getEmployeeLName() {
+        return employeeLName;
+    }
+
+    /**
+     * @param employeeLName the employeeLName to set
+     */
+    public void setEmployeeLName(String employeeLName) {
+        this.employeeLName = employeeLName;
+    }
 }
