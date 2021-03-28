@@ -22,10 +22,12 @@ public class ECAMController {
     //
     private ECAMModel model;
     private ECAMView view;
+    private DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
     
     public ECAMController(ECAMModel model, ECAMView view) {
         this.model = model;
         this.view = view;
+        centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         
         view.getLogin().getExitLabel().addMouseListener( //Exit Label MouseListener
             new MouseAdapter()
@@ -150,8 +152,6 @@ public class ECAMController {
                                                 for(int i = 0; i < 8; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
                                                 }
-                                                DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-                                                centerRenderer.setHorizontalAlignment( JLabel.CENTER );
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
                                                 mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
                                                 mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
@@ -296,8 +296,6 @@ public class ECAMController {
                                                     for(int i = 0; i < 8; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
                                                     }
-                                                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-                                                    centerRenderer.setHorizontalAlignment( JLabel.CENTER );
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
                                                     mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
                                                     mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
@@ -445,8 +443,6 @@ public class ECAMController {
                                                     for(int i = 0; i < 8; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
                                                     }
-                                                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
-                                                    centerRenderer.setHorizontalAlignment( JLabel.CENTER );
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
                                                     mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
                                                     mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
