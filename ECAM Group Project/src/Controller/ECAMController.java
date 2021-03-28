@@ -158,11 +158,7 @@ public class ECAMController {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                 mf.getReportDataTable().setRowHeight(120);
                                                 for(int i = 0; i < 8; i++){
-                                                    if (i == 1){
-                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
-                                                    } else {
-                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
-                                                    }
+                                                    mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
                                                 }
                                                 DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
                                                 centerRenderer.setHorizontalAlignment( JLabel.CENTER );
@@ -318,11 +314,7 @@ public class ECAMController {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
                                                     for(int i = 0; i < 8; i++){
-                                                        if (i == 1){
-                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
-                                                        } else {
-                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
-                                                        }
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
                                                     }
                                                     DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
                                                     centerRenderer.setHorizontalAlignment( JLabel.CENTER );
@@ -481,11 +473,7 @@ public class ECAMController {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
                                                     for(int i = 0; i < 8; i++){
-                                                        if (i == 1){
-                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
-                                                        } else {
-                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
-                                                        }
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
                                                     }
                                                     DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
                                                     centerRenderer.setHorizontalAlignment( JLabel.CENTER );
