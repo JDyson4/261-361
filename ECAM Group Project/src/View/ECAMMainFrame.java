@@ -32,6 +32,7 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         ImageIcon img = new ImageIcon("FinalLogo2.jpg");
         this.setIconImage(img.getImage());
         this.setTitle("Data Manager");
+        this.setResizable(false);
         deptsComboBox.addItem("Sales");
         deptsComboBox.addItem("Manufacturing");
         deptsComboBox.addItem("Human Resources");
@@ -416,7 +417,7 @@ public class ECAMMainFrame extends javax.swing.JFrame {
                 .addComponent(deptsLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(deptsComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
                 .addComponent(reportLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(reportComboBox, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -463,7 +464,7 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         reportDataTable.getTableHeader().setReorderingAllowed(false);
         scrollbar.setViewportView(reportDataTable);
 
-        jPanel4.add(scrollbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 800, 560));
+        jPanel4.add(scrollbar, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 810, 570));
 
         jPanel2.add(jPanel4, java.awt.BorderLayout.CENTER);
 
@@ -471,7 +472,7 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 838, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
