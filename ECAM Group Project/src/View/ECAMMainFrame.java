@@ -143,13 +143,13 @@ public class ECAMMainFrame extends javax.swing.JFrame {
         reportDataTable.setForeground(new java.awt.Color(3, 37, 78));
         reportDataTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {},
+                {},
+                {},
+                {}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+
             }
         ));
         reportDataTable.setAutoResizeMode(javax.swing.JTable.AUTO_RESIZE_OFF);
