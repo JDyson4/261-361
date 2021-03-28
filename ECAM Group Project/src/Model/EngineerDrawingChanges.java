@@ -11,14 +11,14 @@ package Model;
  */
 public class EngineerDrawingChanges {
     
-    public int drawingNo;
-    public byte[] drawing;
-    public double version;
-    public String versionDateTime;
-    public String reasonForChange;
-    public int employeeNo;
-    public String employeeFName;
-    public String employeeLName;
+    private int drawingNo;
+    private byte[] drawing;
+    private double version;
+    private String versionDateTime;
+    private String reasonForChange;
+    private int employeeNo;
+    private String employeeFName;
+    private String employeeLName;
     
     public EngineerDrawingChanges(int dNO, byte[] d, double v, String vDT, String rFC, int eN, String eFN, String eLN) {
         this.drawingNo = dNO;
