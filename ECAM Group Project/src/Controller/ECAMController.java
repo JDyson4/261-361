@@ -115,43 +115,33 @@ public class ECAMController {
                                 {
                                     @Override
                                     public void actionPerformed(ActionEvent e) {
-                                        mf.getDtm().setRowCount(0);
                                         if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                             && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                            mf.getRowData1();
+                                            //TableModel code here
                                         } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                            mf.getRowData2();
+                                            //TableModel code here
                                         } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                            mf.getRowData1();
+                                            //TableModel code here
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                            mf.getRowData2();
+                                            //TableModel code here
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                            mf.getRowData1();
+                                            //TableModel code here
                                         } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                            mf.getRowData2();
+                                            //TableModel code here
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                            mf.getRowData1();
+                                            //TableModel code here
                                         } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                            mf.getRowData2();
+                                            //TableModel code here
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                            mf.getRowData1();
+                                            //TableModel code here
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                    && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) { 
                                             try {
@@ -271,43 +261,33 @@ public class ECAMController {
                                     {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
-                                            mf.getDtm().setRowCount(0);
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                 && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
@@ -430,43 +410,33 @@ public class ECAMController {
                                     {
                                         @Override
                                         public void actionPerformed(ActionEvent e) {
-                                            mf.getDtm().setRowCount(0);
                                             if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                 && "Sales Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Sales".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Sales Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Manufacturing".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Manufacturing Report 3".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Human Resources".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Human Resources Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                //TableModel code here
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 1".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
-                                                mf.getRowData1();
+                                                //TableModel code here
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
                                                 try {
