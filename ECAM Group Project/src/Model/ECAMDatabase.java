@@ -63,6 +63,13 @@ public class ECAMDatabase {
         }
     }
     
+    /**
+     * TESTING CODE FOR IMAGE RETRIEVING
+     * 
+     * @param byte[]
+     * @throws SQLException
+     * @throws ClassNotFoundException 
+     */
     public byte[] getDrawing() throws SQLException, ClassNotFoundException {
         Connection con = getConnection();
         Statement stmt = con.createStatement();
@@ -75,75 +82,143 @@ public class ECAMDatabase {
         return drawing;
     }
     
-    public ArrayList<CustomerPrograms> retrieveCustomerProgramsReport() throws SQLException {
-        ArrayList<CustomerPrograms> customerPrograms = new ArrayList<CustomerPrograms>();
+    public AbstractTableModel retrieveCustomerProgramsReport() throws SQLException {
+        ArrayList<CustomerPrograms> cprog = new ArrayList<CustomerPrograms>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
-        
-        }
-        
-        return customerPrograms;
-    }
-    
-    public ArrayList<CustomerPurchases> retrieveCustomerPurchasesReport() throws SQLException {
-        ArrayList<CustomerPurchases> customerPurchases = new ArrayList<CustomerPurchases>();
-        
-        Connection con = getConnection();
-        Statement stmt;
-        ResultSet rs;
-        
-        stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
-        
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return customerPurchases;
+        //column size needs changed; column size = 8
+        Object[][] cprogRows = new Object[cprog.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] cprogColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(cprogColumnNames,cprogRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
-    public ArrayList<OpenOrders> retrieveOpenOrdersReport() throws SQLException {
-        ArrayList<OpenOrders> openOrders = new ArrayList<OpenOrders>();
+    public AbstractTableModel retrieveCustomerPurchasesReport() throws SQLException {
+        ArrayList<CustomerPurchases> cpurch = new ArrayList<CustomerPurchases>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return openOrders;
+        //column size needs changed; column size = 8
+        Object[][] cpurchRows = new Object[cpurch.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] cpurchColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(cpurchColumnNames,cpurchRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
-    public ArrayList<PartsAircraft> retrievePartsAircraftReport() throws SQLException {
-        ArrayList<PartsAircraft> partsAircraft = new ArrayList<PartsAircraft>();
+    public AbstractTableModel retrieveOpenOrdersReport() throws SQLException {
+        ArrayList<OpenOrders> oo = new ArrayList<OpenOrders>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return partsAircraft;
+        //column size needs changed; column size = 8
+        Object[][] ooRows = new Object[oo.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] ooColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(ooColumnNames,ooRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
-    public ArrayList<Parts> retrievePartsReport() throws SQLException {
+    public AbstractTableModel retrievePartsAircraftReport() throws SQLException {
+        ArrayList<PartsAircraft> pa = new ArrayList<PartsAircraft>();
+        
+        Connection con = getConnection();
+        Statement stmt;
+        ResultSet rs;
+        
+        stmt = con.createStatement();
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        
+        while(rs.next()){ //<--store data in report object and add to arraylist
+            
+        }
+        
+        //column size needs changed; column size = 8
+        Object[][] paRows = new Object[pa.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] paColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(paColumnNames,paRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
+    }
+    
+    public AbstractTableModel retrievePartsReport() throws SQLException {
         ArrayList<Parts> parts = new ArrayList<Parts>();
         
         Connection con = getConnection();
@@ -151,81 +226,166 @@ public class ECAMDatabase {
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return parts;
+        //column size needs changed; column size = 8
+        Object[][] partsRows = new Object[parts.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] partsColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(partsColumnNames,partsRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
-    public ArrayList<AircraftParts> retrieveAircraftPartsReport() throws SQLException {
-        ArrayList<AircraftParts> aircraftParts = new ArrayList<AircraftParts>();
+    public AbstractTableModel retrieveAircraftPartsReport() throws SQLException {
+        ArrayList<AircraftParts> ap = new ArrayList<AircraftParts>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return aircraftParts;
+        //column size needs changed; column size = 8
+        Object[][] apRows = new Object[ap.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] apColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(apColumnNames,apRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
-    public ArrayList<EngineerPrograms> retrieveEngineerProgramsReport() throws SQLException {
-        ArrayList<EngineerPrograms> engineerPrograms = new ArrayList<EngineerPrograms>();
+    public AbstractTableModel retrieveEngineerProgramsReport() throws SQLException {
+        ArrayList<EngineerPrograms> ep = new ArrayList<EngineerPrograms>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return engineerPrograms;
+        //column size needs changed; column size = 8
+        Object[][] epRows = new Object[ep.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] epColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(epColumnNames,epRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
-    public ArrayList<EngineerProgramHours> retrieveEngineerProgramHoursReport() throws SQLException {
-        ArrayList<EngineerProgramHours> engineerProgramHours = new ArrayList<EngineerProgramHours>();
+    public AbstractTableModel retrieveEngineerProgramHoursReport() throws SQLException {
+        ArrayList<EngineerProgramHours> eph = new ArrayList<EngineerProgramHours>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return engineerProgramHours;
+        //column size needs changed; column size = 8
+        Object[][] ephRows = new Object[eph.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] ephColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(ephColumnNames,ephRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
-    public ArrayList<EngineerEngineerDrawings> retrieveEngineerEngineerDrawingsReport() throws SQLException {
-        ArrayList<EngineerEngineerDrawings> engineerEngineerDrawings = new ArrayList<EngineerEngineerDrawings>();
+    public AbstractTableModel retrieveEngineerEngineerDrawingsReport() throws SQLException {
+        ArrayList<EngineerEngineerDrawings> eed = new ArrayList<EngineerEngineerDrawings>();
         
         Connection con = getConnection();
         Statement stmt;
         ResultSet rs;
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER");
+        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        while(rs.next()){
+        while(rs.next()){ //<--store data in report object and add to arraylist
             
         }
         
-        return engineerEngineerDrawings;
+        //column size needs changed; column size = 8
+        Object[][] eedRows = new Object[eed.size()][8];
+        
+        //for loop here
+        
+        //Names need updated
+        String[] eedColumnNames = {"Drawing No.","Drawing","Version",
+                                "Version DateTime", "Reason For Change", 
+                                "Employee No.", "Employee FName", "Employee LName"};
+        
+        ReportTableModel rtm = new ReportTableModel(eedColumnNames,eedRows){
+            @Override
+            public boolean isCellEditable(int row, int column){
+                return false;
+            }
+        };
+        
+        return rtm;
     }
     
     /**
