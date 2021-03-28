@@ -9,6 +9,11 @@ import Model.ECAMModel;
 import View.ECAMMainFrame;
 import View.ECAMView;
 import java.awt.event.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JLabel;
+import javax.swing.table.DefaultTableCellRenderer;
 /**
  *
  * @author jpdys
@@ -148,11 +153,27 @@ public class ECAMController {
                                             mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age"});
                                             mf.getRowData1();
                                         } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
-                                                   && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                            mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                            mf.getRowData2();
+                                                   && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) { 
+                                            try {
+                                                mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
+                                                mf.getReportDataTable().setRowHeight(120);
+                                                for(int i = 0; i < 8; i++){
+                                                    if (i == 1){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    } else {
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                    }
+                                                }
+                                                DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                                                centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+                                                mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                            } catch (SQLException ex) {
+                                                Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                            }
                                         }
-                                        mf.getReportDataTable().setModel(mf.getDtm());
                                     }
                                 }
                             );
@@ -293,10 +314,27 @@ public class ECAMController {
                                                 mf.getRowData1();
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        if (i == 1){
+                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                        } else {
+                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                        }
+                                                    }
+                                                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                                                    centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             }
-                                            mf.getReportDataTable().setModel(mf.getDtm());
+                                            //mf.getReportDataTable().setModel(mf.getDtm());
                                         }
                                     }
                                 );
@@ -439,10 +477,27 @@ public class ECAMController {
                                                 mf.getRowData1();
                                             } else if ("Engineering".equals(String.valueOf(mf.getDeptsComboBox().getSelectedItem()))
                                                        && "Engineering Report 2".equals(String.valueOf(mf.getReportComboBox().getSelectedItem()))) {
-                                                mf.getDtm().setColumnIdentifiers(new Object[]{"ID","First Name","Last Name","Age","Work No.","Job Title","Employer","Hours","Height","Nickname","Hello","Width"});
-                                                mf.getRowData2();
+                                                try {
+                                                    mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
+                                                    mf.getReportDataTable().setRowHeight(120);
+                                                    for(int i = 0; i < 8; i++){
+                                                        if (i == 1){
+                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                        } else {
+                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(150);
+                                                        }
+                                                    }
+                                                    DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
+                                                    centerRenderer.setHorizontalAlignment( JLabel.CENTER );
+                                                    mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Double.class, centerRenderer);
+                                                    mf.getReportDataTable().setDefaultRenderer(Integer.class, centerRenderer);
+                                                } catch (SQLException ex) {
+                                                    Logger.getLogger(ECAMController.class.getName()).log(Level.SEVERE, null, ex);
+                                                }
                                             }
-                                            mf.getReportDataTable().setModel(mf.getDtm());
+                                            //mf.getReportDataTable().setModel(mf.getDtm());
                                         }
                                     }
                                 );
