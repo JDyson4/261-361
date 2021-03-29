@@ -312,23 +312,44 @@ public class ECAMDatabase {
         System.out.println("Retrieved Engineer to Program Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT employees.EmployeeNo, "
+                                    + "employees.EmployeeFName, "
+                                    + "employees.EmployeeLName, "
+                                    + "aircraft.ProgramNo, "
+                                    + "aircraft.ProgramName "
+                             + "FROM employees "
+                             + "JOIN engineerprojects "
+                                + "ON employees.EmployeeNo = engineerprojects.EmployeeNo "
+                             + "JOIN projects "
+                                + "ON engineerprojects.ProjectNo = projects.ProjectNo "
+                             + "JOIN aircraft "
+                                + "ON projects.ProgramNo = aircraft.ProgramNo ");
         
         ArrayList<EngineerPrograms> epA = new ArrayList<EngineerPrograms>();
         EngineerPrograms ep;
         while(rs.next()){ //<--store data in report object and add to arraylist
-            
+            ep = new EngineerPrograms(
+                rs.getInt("employees.EmployeeNo"),
+                rs.getString("employees.EmployeeFName"),
+                rs.getString("employees.EmployeeLName"),
+                rs.getInt("aircraft.ProgramNo"),
+                rs.getString("aircraft.ProgramName")
+            );
+            epA.add(ep);
         }
         
-        //column size needs changed; column size = 8
-        Object[][] epRows = new Object[epA.size()][8];
+        Object[][] epRows = new Object[epA.size()][5];
         
-        //for loop here
+        for (int i = 0; i < epA.size(); i++){
+            epRows[i][0] = epA.get(i).getEmployeeNo();
+            epRows[i][1] = epA.get(i).getEmployeeFName();
+            epRows[i][2] = epA.get(i).getEmployeeLName();
+            epRows[i][3] = epA.get(i).getProgramNo();
+            epRows[i][4] = epA.get(i).getProgramName();
+        }
         
-        //Names need updated
-        String[] epColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] epColumnNames = {"Employee No.","Employee FName","Employee LName",
+                                   "Program No.", "Program Name"};
         
         ReportTableModel rtm = new ReportTableModel(epColumnNames,epRows){
             @Override
@@ -354,13 +375,13 @@ public class ECAMDatabase {
                                     + "employees.EmployeeLName, "
                                     + "engineerprojects.EngineerHours, "
                                     + "aircraft.ProgramNo, "
-                                    + "aircraft.ProgramName" 
-                             + "FROM employees " 
+                                    + "aircraft.ProgramName "
+                             + "FROM employees "
                              + "JOIN engineerprojects "
                                 + "ON employees.EmployeeNo = engineerprojects.EmployeeNo "
                              + "JOIN projects "
-                                + "ON engineerprojects.ProjectNo = projects.ProjectNo"
-                             + "JOIN aircraft " 
+                                + "ON engineerprojects.ProjectNo = projects.ProjectNo "
+                             + "JOIN aircraft "
                                 + "ON projects.ProgramNo = aircraft.ProgramNo ");
         
         ArrayList<EngineerProgramHours> ephA = new ArrayList<EngineerProgramHours>();
