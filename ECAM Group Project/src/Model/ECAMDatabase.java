@@ -320,12 +320,9 @@ public class ECAMDatabase {
                                     + "aircraft.ProgramNo, "
                                     + "aircraft.ProgramName "
                              + "FROM employees "
-                             + "JOIN engineerprojects "
-                                + "ON employees.EmployeeNo = engineerprojects.EmployeeNo "
-                             + "JOIN projects "
-                                + "ON engineerprojects.ProjectNo = projects.ProjectNo "
-                             + "JOIN aircraft "
-                                + "ON projects.ProgramNo = aircraft.ProgramNo "
+                             + "JOIN engineerprojects ON employees.EmployeeNo = engineerprojects.EmployeeNo "
+                             + "JOIN projects ON engineerprojects.ProjectNo = projects.ProjectNo "
+                             + "JOIN aircraft ON projects.ProgramNo = aircraft.ProgramNo "
                              + "WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerPrograms> epA = new ArrayList<EngineerPrograms>();
@@ -386,12 +383,9 @@ public class ECAMDatabase {
                                     + "aircraft.ProgramNo, "
                                     + "aircraft.ProgramName "
                              + "FROM employees "
-                             + "JOIN engineerprojects "
-                                + "ON employees.EmployeeNo = engineerprojects.EmployeeNo "
-                             + "JOIN projects "
-                                + "ON engineerprojects.ProjectNo = projects.ProjectNo "
-                             + "JOIN aircraft "
-                                + "ON projects.ProgramNo = aircraft.ProgramNo "
+                             + "JOIN engineerprojects ON employees.EmployeeNo = engineerprojects.EmployeeNo "
+                             + "JOIN projects ON engineerprojects.ProjectNo = projects.ProjectNo "
+                             + "JOIN aircraft ON projects.ProgramNo = aircraft.ProgramNo "
                              + "WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerProgramHours> ephA = new ArrayList<EngineerProgramHours>();
@@ -445,7 +439,17 @@ public class ECAMDatabase {
         System.out.println("Retrieved Engineer to Engineer Drawing Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT employees.EmployeeNo, employees.EmployeeFName, employees.EmployeeLName, employees.Skill, employees.JobTitle, drawings.DrawingNo, drawings.Drawing FROM employees JOIN engineerdrawings ON employees.EmployeeNo = engineerdrawings.EmployeeNo JOIN drawings ON drawings.DrawingNo = engineerdrawings.DrawingNo WHERE employees.JobTitle = 'Engineer'");
+        rs = stmt.executeQuery("SELECT employees.EmployeeNo, "
+                                    + "employees.EmployeeFName, "
+                                    + "employees.EmployeeLName, "
+                                    + "employees.Skill, "
+                                    + "employees.JobTitle, "
+                                    + "drawings.DrawingNo, "
+                                    + "drawings.Drawing "
+                             + "FROM employees "
+                             + "JOIN engineerdrawings ON employees.EmployeeNo = engineerdrawings.EmployeeNo "
+                             + "JOIN drawings ON drawings.DrawingNo = engineerdrawings.DrawingNo "
+                             + "WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerEngineerDrawings> eedA = new ArrayList<EngineerEngineerDrawings>();
         EngineerEngineerDrawings eed;
@@ -485,7 +489,7 @@ public class ECAMDatabase {
         
         String[] eedColumnNames = {"Employee No.", "Employee FName", "Employee LName", "Skill", "Job Title", "Drawing No.","Drawing"};
         
-        EngineerDrawingReportTableModel rtm = new EngineerDrawingReportTableModel(eedColumnNames,eedRows){
+        EngineerDrawingReportTableModel rtm = new EngineerDrawingReportTableModel(eedColumnNames, eedRows){
             @Override
             public boolean isCellEditable(int row, int column){
                 return false;
@@ -522,10 +526,8 @@ public class ECAMDatabase {
                                     + "employees.Skill, "
                                     + "employees.JobTitle "
                              + "FROM drawings "
-                             + "JOIN engineerdrawings "
-                                + "ON drawings.DrawingNo = engineerdrawings.DrawingNo "
-                             + "JOIN employees "
-                                + "ON employees.EmployeeNo = engineerdrawings.EmployeeNo "
+                             + "JOIN engineerdrawings ON drawings.DrawingNo = engineerdrawings.DrawingNo "
+                             + "JOIN employees ON employees.EmployeeNo = engineerdrawings.EmployeeNo "
                              + "WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerDrawingChanges> edcA = new ArrayList<EngineerDrawingChanges>();
