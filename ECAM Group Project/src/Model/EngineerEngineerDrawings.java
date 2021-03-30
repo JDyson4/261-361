@@ -14,13 +14,17 @@ public class EngineerEngineerDrawings {
     private int employeeNo;
     private String employeeFName;
     private String employeeLName;
+    private String skill;
+    private String jobTitle;
     private int drawingNo;
     private byte[] drawing;
     
-    public EngineerEngineerDrawings(int eN, String eFN, String eLN, int dNO, byte[] d) {
+    public EngineerEngineerDrawings(int eN, String eFN, String eLN, String s, String jT, int dNO, byte[] d) {
         this.employeeNo = eN;
         this.employeeFName = eFN;
         this.employeeLName = eLN;
+        this.skill = s;
+        this.jobTitle = jT;
         this.drawingNo = dNO;
         this.drawing = d;
     }
@@ -93,5 +97,33 @@ public class EngineerEngineerDrawings {
      */
     public void setDrawing(byte[] drawing) {
         this.drawing = drawing;
+    }
+    
+    /**
+     * @return the jobTitle
+     */
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    /**
+     * @param jobTitle the jobTitle to set
+     */
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    /**
+     * @return the skill
+     */
+    public String getSkill() {
+        return skill;
+    }
+
+    /**
+     * @param skill the skill to set
+     */
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 }
