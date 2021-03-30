@@ -212,7 +212,7 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 5; i++){
+                                                for(int i = 0; i < 7; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -227,7 +227,7 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 6; i++){
+                                                for(int i = 0; i < 8; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -242,7 +242,7 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 5; i++){
+                                                for(int i = 0; i < 7; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -257,7 +257,7 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 8; i++){
+                                                for(int i = 0; i < 10; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -464,7 +464,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 5; i++){
+                                                    for(int i = 0; i < 7; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -479,7 +479,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 6; i++){
+                                                    for(int i = 0; i < 8; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -494,7 +494,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 5; i++){
+                                                    for(int i = 0; i < 7; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -509,7 +509,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 10; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -718,7 +718,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 5; i++){
+                                                    for(int i = 0; i < 7; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -733,7 +733,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerProgramHoursReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 6; i++){
+                                                    for(int i = 0; i < 8; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -748,7 +748,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerEngineerDrawingsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 5; i++){
+                                                    for(int i = 0; i < 7; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -763,7 +763,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveEngineerDrawingChangesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 10; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
