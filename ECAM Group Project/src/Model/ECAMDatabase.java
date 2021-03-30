@@ -315,6 +315,8 @@ public class ECAMDatabase {
         rs = stmt.executeQuery("SELECT employees.EmployeeNo, "
                                     + "employees.EmployeeFName, "
                                     + "employees.EmployeeLName, "
+                                    + "employees.Skill, "
+                                    + "employees.JobTitle, "
                                     + "aircraft.ProgramNo, "
                                     + "aircraft.ProgramName "
                              + "FROM employees "
@@ -323,7 +325,8 @@ public class ECAMDatabase {
                              + "JOIN projects "
                                 + "ON engineerprojects.ProjectNo = projects.ProjectNo "
                              + "JOIN aircraft "
-                                + "ON projects.ProgramNo = aircraft.ProgramNo ");
+                                + "ON projects.ProgramNo = aircraft.ProgramNo "
+                             + "WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerPrograms> epA = new ArrayList<EngineerPrograms>();
         EngineerPrograms ep;
@@ -332,24 +335,28 @@ public class ECAMDatabase {
                 rs.getInt("employees.EmployeeNo"),
                 rs.getString("employees.EmployeeFName"),
                 rs.getString("employees.EmployeeLName"),
+                rs.getString("employees.Skill"),
+                rs.getString("employees.JobTitle"),
                 rs.getInt("aircraft.ProgramNo"),
                 rs.getString("aircraft.ProgramName")
             );
             epA.add(ep);
         }
         
-        Object[][] epRows = new Object[epA.size()][5];
+        Object[][] epRows = new Object[epA.size()][7];
         
         for (int i = 0; i < epA.size(); i++){
             epRows[i][0] = epA.get(i).getEmployeeNo();
             epRows[i][1] = epA.get(i).getEmployeeFName();
             epRows[i][2] = epA.get(i).getEmployeeLName();
-            epRows[i][3] = epA.get(i).getProgramNo();
-            epRows[i][4] = epA.get(i).getProgramName();
+            epRows[i][3] = epA.get(i).getSkill();
+            epRows[i][4] = epA.get(i).getJobTitle();
+            epRows[i][5] = epA.get(i).getProgramNo();
+            epRows[i][6] = epA.get(i).getProgramName();
         }
         
-        String[] epColumnNames = {"Employee No.","Employee FName","Employee LName",
-                                   "Program No.", "Program Name"};
+        String[] epColumnNames = {"Employee No.","Employee FName","Employee LName", "Skill",
+                                  "Job Title", "Program No.", "Program Name"};
         
         ReportTableModel rtm = new ReportTableModel(epColumnNames,epRows){
             @Override
@@ -373,6 +380,8 @@ public class ECAMDatabase {
         rs = stmt.executeQuery("SELECT employees.EmployeeNo, "
                                     + "employees.EmployeeFName, "
                                     + "employees.EmployeeLName, "
+                                    + "employees.Skill, "
+                                    + "employees.JobTitle, "
                                     + "engineerprojects.EngineerHours, "
                                     + "aircraft.ProgramNo, "
                                     + "aircraft.ProgramName "
@@ -382,7 +391,8 @@ public class ECAMDatabase {
                              + "JOIN projects "
                                 + "ON engineerprojects.ProjectNo = projects.ProjectNo "
                              + "JOIN aircraft "
-                                + "ON projects.ProgramNo = aircraft.ProgramNo ");
+                                + "ON projects.ProgramNo = aircraft.ProgramNo "
+                             + "WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerProgramHours> ephA = new ArrayList<EngineerProgramHours>();
         EngineerProgramHours eph;
@@ -391,6 +401,8 @@ public class ECAMDatabase {
                 rs.getInt("employees.EmployeeNo"),
                 rs.getString("employees.EmployeeFName"),
                 rs.getString("employees.EmployeeLName"),
+                rs.getString("employees.Skill"),
+                rs.getString("employees.JobTitle"),    
                 rs.getInt("engineerprojects.EngineerHours"),
                 rs.getInt("aircraft.ProgramNo"),
                 rs.getString("aircraft.ProgramName")
@@ -398,19 +410,21 @@ public class ECAMDatabase {
             ephA.add(eph);
         }
         
-        Object[][] ephRows = new Object[ephA.size()][6];
+        Object[][] ephRows = new Object[ephA.size()][8];
         
         for (int i = 0; i < ephA.size(); i++){
             ephRows[i][0] = ephA.get(i).getEmployeeNo();
             ephRows[i][1] = ephA.get(i).getEmployeeFName();
             ephRows[i][2] = ephA.get(i).getEmployeeLName();
-            ephRows[i][3] = ephA.get(i).getEngineerHours();
-            ephRows[i][4] = ephA.get(i).getProgramNo();
-            ephRows[i][5] = ephA.get(i).getProgramName();
+            ephRows[i][3] = ephA.get(i).getSkill();
+            ephRows[i][4] = ephA.get(i).getJobTitle();
+            ephRows[i][5] = ephA.get(i).getEngineerHours();
+            ephRows[i][6] = ephA.get(i).getProgramNo();
+            ephRows[i][7] = ephA.get(i).getProgramName();
         }
         
-        String[] ephColumnNames = {"Employee No.","Employee FName","Employee LName",
-                                "Engineer Hours", "Program No.", "Program Name"};
+        String[] ephColumnNames = {"Employee No.","Employee FName","Employee LName", "Skill", "Job Title",
+                                   "Engineer Hours", "Program No.", "Program Name"};
         
         ReportTableModel rtm = new ReportTableModel(ephColumnNames,ephRows){
             @Override
@@ -431,16 +445,7 @@ public class ECAMDatabase {
         System.out.println("Retrieved Engineer to Engineer Drawing Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT employees.EmployeeNo, "
-                                    + "employees.EmployeeFName, "
-                                    + "employees.EmployeeLName, "
-                                    + "drawings.DrawingNo, "
-                                    + "drawings.Drawing "
-                             + "FROM employees "
-                             + "JOIN engineerdrawings "
-                                + "ON employees.EmployeeNo = engineerdrawings.EmployeeNo "
-                             + "JOIN drawings "
-                                + "ON drawings.DrawingNo = engineerdrawings.DrawingNo ");
+        rs = stmt.executeQuery("SELECT employees.EmployeeNo, employees.EmployeeFName, employees.EmployeeLName, employees.Skill, employees.JobTitle, drawings.DrawingNo, drawings.Drawing FROM employees JOIN engineerdrawings ON employees.EmployeeNo = engineerdrawings.EmployeeNo JOIN drawings ON drawings.DrawingNo = engineerdrawings.DrawingNo WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerEngineerDrawings> eedA = new ArrayList<EngineerEngineerDrawings>();
         EngineerEngineerDrawings eed;
@@ -449,31 +454,36 @@ public class ECAMDatabase {
                 rs.getInt("employees.EmployeeNo"),
                 rs.getString("employees.EmployeeFName"),
                 rs.getString("employees.EmployeeLName"),
+                rs.getString("employees.Skill"),    
+                rs.getString("employees.JobTitle"),
                 rs.getInt("drawings.DrawingNo"),
                 rs.getBytes("drawings.Drawing")
             );
             eedA.add(eed);
         }
         
-        Object[][] eedRows = new Object[eedA.size()][5];
+        Object[][] eedRows = new Object[eedA.size()][7];
         
         for(int i = 0; i < eedA.size(); i++)
         {
             eedRows[i][0] = eedA.get(i).getEmployeeNo();
             eedRows[i][1] = eedA.get(i).getEmployeeFName();
             eedRows[i][2] = eedA.get(i).getEmployeeLName();
-            eedRows[i][3] = eedA.get(i).getDrawingNo();
+            eedRows[i][3] = eedA.get(i).getSkill();
+            eedRows[i][4] = eedA.get(i).getJobTitle();
+            System.out.println("JobTitle = " + eedA.get(i).getJobTitle());
+            eedRows[i][5] = eedA.get(i).getDrawingNo();
             if (eedA.get(i).getDrawing() != null) {
                 ImageIcon drawing = new ImageIcon(
                         new ImageIcon(eedA.get(i).getDrawing()).getImage()
                                 .getScaledInstance(160, 120, Image.SCALE_SMOOTH));
-                eedRows[i][4] = drawing;
+                eedRows[i][6] = drawing;
             } else {
-                eedRows[i][4] = null;
+                eedRows[i][6] = null;
             }
         }
         
-        String[] eedColumnNames = {"Employee No.", "Employee FName", "Employee LName", "Drawing No.","Drawing"};
+        String[] eedColumnNames = {"Employee No.", "Employee FName", "Employee LName", "Skill", "Job Title", "Drawing No.","Drawing"};
         
         EngineerDrawingReportTableModel rtm = new EngineerDrawingReportTableModel(eedColumnNames,eedRows){
             @Override
@@ -508,12 +518,15 @@ public class ECAMDatabase {
                                     + "drawings.ReasonForChange, "
                                     + "employees.EmployeeNo, "
                                     + "employees.EmployeeFName, "
-                                    + "employees.EmployeeLName "
+                                    + "employees.EmployeeLName, "
+                                    + "employees.Skill, "
+                                    + "employees.JobTitle "
                              + "FROM drawings "
                              + "JOIN engineerdrawings "
                                 + "ON drawings.DrawingNo = engineerdrawings.DrawingNo "
                              + "JOIN employees "
-                                + "ON employees.EmployeeNo = engineerdrawings.EmployeeNo ");
+                                + "ON employees.EmployeeNo = engineerdrawings.EmployeeNo "
+                             + "WHERE employees.JobTitle = 'Engineer'");
         
         ArrayList<EngineerDrawingChanges> edcA = new ArrayList<EngineerDrawingChanges>();
         EngineerDrawingChanges edc;
@@ -527,12 +540,14 @@ public class ECAMDatabase {
                 rs.getString("drawings.ReasonForChange"),
                 rs.getInt("employees.EmployeeNo"),
                 rs.getString("employees.EmployeeFName"),
-                rs.getString("employees.EmployeeLName")
+                rs.getString("employees.EmployeeLName"),
+                rs.getString("employees.Skill"),
+                rs.getString("employees.JobTitle")    
             );
             edcA.add(edc);
         }
         
-        Object[][] edcRows = new Object[edcA.size()][8];
+        Object[][] edcRows = new Object[edcA.size()][10];
         
         for(int i = 0; i < edcA.size(); i++)
         {
@@ -551,11 +566,13 @@ public class ECAMDatabase {
             edcRows[i][5] = edcA.get(i).getEmployeeNo();
             edcRows[i][6] = edcA.get(i).getEmployeeFName();
             edcRows[i][7] = edcA.get(i).getEmployeeLName();
+            edcRows[i][8] = edcA.get(i).getSkill();
+            edcRows[i][9] = edcA.get(i).getJobTitle(); 
         }
         
         String[] edcColumnNames = {"Drawing No.","Drawing","Version",
                                 "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+                                "Employee No.", "Employee FName", "Employee LName", "Skill","Job Title"};
         
         DrawingChangesReportTableModel dcrtm = new DrawingChangesReportTableModel(edcColumnNames,edcRows){
             @Override
