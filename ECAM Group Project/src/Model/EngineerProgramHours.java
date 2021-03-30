@@ -14,14 +14,18 @@ public class EngineerProgramHours {
     private int employeeNo;
     private String employeeFName;
     private String employeeLName;
+    private String skill;
+    private String jobTitle;
     private int engineerHours;
     private int programNo;
     private String programName;
     
-    public EngineerProgramHours(int eN, String eFN, String eLN, int eH, int pNo, String pNa) {
+    public EngineerProgramHours(int eN, String eFN, String eLN, String s, String jT, int eH, int pNo, String pNa) {
         this.employeeNo = eN;
         this.employeeFName = eFN;
         this.employeeLName = eLN;
+        this.skill = s;
+        this.jobTitle = jT;
         this.engineerHours = eH;
         this.programNo = pNo;
         this.programName = pNa;
@@ -109,5 +113,33 @@ public class EngineerProgramHours {
      */
     public void setProgramName(String programName) {
         this.programName = programName;
+    }
+
+    /**
+     * @return the jobTitle
+     */
+    public String getJobTitle() {
+        return jobTitle;
+    }
+
+    /**
+     * @param jobTitle the jobTitle to set
+     */
+    public void setJobTitle(String jobTitle) {
+        this.jobTitle = jobTitle;
+    }
+
+    /**
+     * @return the skill
+     */
+    public String getSkill() {
+        return skill;
+    }
+
+    /**
+     * @param skill the skill to set
+     */
+    public void setSkill(String skill) {
+        this.skill = skill;
     }
 }
