@@ -19,7 +19,6 @@ public class OpenOrders {
     }
 
     
-    
     /**
      * @return the orderNo
      */
