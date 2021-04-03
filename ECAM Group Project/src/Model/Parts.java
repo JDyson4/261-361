@@ -5,7 +5,7 @@ package Model;
 
 /**
  *
- * @author jpdys
+ * @author Catie
  */
 public class Parts {
    
