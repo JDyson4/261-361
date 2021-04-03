@@ -167,7 +167,7 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 8; i++){
+                                                for(int i = 0; i < 5; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -182,7 +182,7 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 8; i++){
+                                                for(int i = 0; i < 3; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -419,7 +419,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 5; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -434,7 +434,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 3; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -673,7 +673,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsAircraftReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 5; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -688,7 +688,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrievePartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 3; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
