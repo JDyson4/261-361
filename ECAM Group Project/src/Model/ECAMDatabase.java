@@ -92,7 +92,7 @@ public class ECAMDatabase {
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        ArrayList<CustomerPrograms> cprogA = new ArrayList<CustomerPrograms>();
+        ArrayList<CustomerPrograms> cprogA = new ArrayList<>();
         CustomerPrograms cprog;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
@@ -129,7 +129,7 @@ public class ECAMDatabase {
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        ArrayList<CustomerPurchases> cpurchA = new ArrayList<CustomerPurchases>();
+        ArrayList<CustomerPurchases> cpurchA = new ArrayList<>();
         CustomerPurchases cpurch;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
@@ -166,7 +166,7 @@ public class ECAMDatabase {
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        ArrayList<OpenOrders> ooA = new ArrayList<OpenOrders>();
+        ArrayList<OpenOrders> ooA = new ArrayList<>();
         OpenOrders oo;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
@@ -203,7 +203,7 @@ public class ECAMDatabase {
         stmt = con.createStatement();
         rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
         
-        ArrayList<PartsAircraft> paA = new ArrayList<PartsAircraft>();
+        ArrayList<PartsAircraft> paA = new ArrayList<>();
         PartsAircraft pa;
         while(rs.next()){ //<--store data in report object and add to arraylist
             
