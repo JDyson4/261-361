@@ -5,7 +5,7 @@ package Model;
 
 /**
  *
- * @author jpdys
+ * @author John
  */
 public class AircraftParts {
     
