@@ -10,10 +10,14 @@ package Model;
 public class CustomerPrograms {
     private int programNo;
     private int customerNo;
+    private String programName;
+    private String customerName;
     
-    public CustomerPrograms(int prNo, int custNo) {
+    public CustomerPrograms(int prNo, int custNo, String prName, String custName) {
         programNo = prNo;
         customerNo = custNo;
+        programName = prName;
+        customerName = custName;
     }
 
     /**
@@ -42,6 +46,34 @@ public class CustomerPrograms {
      */
     public void setCustomerNo(int customerNo) {
         this.customerNo = customerNo;
+    }
+
+    /**
+     * @return the programName
+     */
+    public String getProgramName() {
+        return programName;
+    }
+
+    /**
+     * @param programName the programName to set
+     */
+    public void setProgramName(String programName) {
+        this.programName = programName;
+    }
+
+    /**
+     * @return the customerName
+     */
+    public String getCustomerName() {
+        return customerName;
+    }
+
+    /**
+     * @param customerName the customerName to set
+     */
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
     
 }
