@@ -6,7 +6,7 @@
 package Controller;
 
 import Model.ECAMModel;
-import View.ECAMMainFrame;
+import View.ECAMReportFrame;
 import View.ECAMView;
 import java.awt.event.*;
 import java.sql.SQLException;
@@ -99,7 +99,7 @@ public class ECAMController {
             }
         );//end Password MouseListener
         
-        view.getLogin().getSignInButton().addActionListener( //Sign in ActionListener
+        view.getLogin().getSignInButton().addActionListener(//Sign in ActionListener
             new ActionListener()
             {
                 @Override
@@ -111,7 +111,7 @@ public class ECAMController {
                         if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                             view.getLogin().dispose();
                             //ActionListeners MainFrame
-                            ECAMMainFrame mf = new ECAMMainFrame();
+                            ECAMReportFrame mf = new ECAMReportFrame();
                             mf.getGoButton().addActionListener(
                                 new ActionListener()
                                 {
@@ -346,7 +346,7 @@ public class ECAMController {
             }
         );//end SignIn ActionListener
         
-        view.getLogin().getUsernameField().addKeyListener( //Username KeyListener
+        view.getLogin().getUsernameField().addKeyListener(//Username KeyListener
             new KeyAdapter()
             {
                 @Override
@@ -363,7 +363,7 @@ public class ECAMController {
                             if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                                 view.getLogin().dispose();
                                 //ActionListeners on MainFrame
-                                ECAMMainFrame mf = new ECAMMainFrame();
+                                ECAMReportFrame mf = new ECAMReportFrame();
                                 mf.getGoButton().addActionListener(
                                     new ActionListener()
                                     {
@@ -599,7 +599,7 @@ public class ECAMController {
             }
         );//end Username KeyListener
         
-        view.getLogin().getPasswordField().addKeyListener( //Password KeyListener
+        view.getLogin().getPasswordField().addKeyListener(//Password KeyListener
             new KeyAdapter()
             {
                 @Override
@@ -617,7 +617,7 @@ public class ECAMController {
                             if (model.getUserInfo().getUser().get(userID).equals(passcode)) {
                                 view.getLogin().dispose();
                                 //ActionListener MainFrame
-                                ECAMMainFrame mf = new ECAMMainFrame();
+                                ECAMReportFrame mf = new ECAMReportFrame();
                                 mf.getGoButton().addActionListener(
                                     new ActionListener()
                                     {
