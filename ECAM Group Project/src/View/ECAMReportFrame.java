@@ -308,10 +308,4 @@ public class ECAMReportFrame extends javax.swing.JFrame {
         return saveItem;
     }
 
-    /**
-     * @return the scrollbar
-     */
-    public javax.swing.JScrollPane getScrollbar() {
-        return scrollbar;
-    }
 }
