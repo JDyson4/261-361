@@ -11,13 +11,15 @@ public class CustomerPrograms {
     private int programNo;
     private int customerNo;
     private String programName;
-    private String customerName;
+    private String customerFName;
+    private String customerLName;
     
-    public CustomerPrograms(int prNo, int custNo, String prName, String custName) {
+    public CustomerPrograms(int prNo, int custNo, String prName, String custFName, String custLName) {
         programNo = prNo;
         customerNo = custNo;
         programName = prName;
-        customerName = custName;
+        customerFName = custFName;
+        customerLName = custLName;
     }
 
     /**
@@ -63,17 +65,31 @@ public class CustomerPrograms {
     }
 
     /**
-     * @return the customerName
+     * @return the customerFName
      */
-    public String getCustomerName() {
-        return customerName;
+    public String getCustomerFName() {
+        return customerFName;
     }
 
     /**
-     * @param customerName the customerName to set
+     * @param customerFName the customerFName to set
      */
-    public void setCustomerName(String customerName) {
-        this.customerName = customerName;
+    public void setCustomerFName(String customerFName) {
+        this.customerFName = customerFName;
+    }
+
+    /**
+     * @return the customerLName
+     */
+    public String getCustomerLName() {
+        return customerLName;
+    }
+
+    /**
+     * @param customerLName the customerLName to set
+     */
+    public void setCustomerLName(String customerLName) {
+        this.customerLName = customerLName;
     }
     
 }
