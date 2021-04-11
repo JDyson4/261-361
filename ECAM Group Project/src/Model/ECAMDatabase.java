@@ -238,11 +238,10 @@ public class ECAMDatabase {
         System.out.println("Retrieved Parts Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT PartNo, " +
-                                      "Inventory, " +
-                                      "Vendor" +
-                               "FROM parts " +
-                               "WHERE Vendor = ''");
+        rs = stmt.executeQuery("SELECT parts.PartNo, " + 
+                                      "parts.Inventory, " +
+                                      "parts.Vendor " +
+                               "FROM parts");
         
         ArrayList<Parts> partsA = new ArrayList<Parts>();
         Parts parts;
