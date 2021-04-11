@@ -285,23 +285,42 @@ public class ECAMDatabase {
         System.out.println("Retrieved Aircraft to Parts Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT aircraftparts.programNo, " +
-                                       "" +
-                               "FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT aircraft.ProgramNo, " +
+                                      "aircraft.ProgramName, " +
+                                      "parts.PartNo, " +
+                                      "parts.Inventory, " +
+                                      "parts.Vendor, " +
+                               "FROM aircraft " +
+                               "JOIN aircraftparts ON aircraft.ProgramNo = aircraftparts.ProgramNo " +
+                               "JOIN parts ON aircraftparts.PartNo = parts.PartNo " +
+                               "WHERE parts.PartNo = 1000"); // <-- update query
         
         ArrayList<AircraftParts> apA = new ArrayList<AircraftParts>();
         AircraftParts ap;
         while(rs.next()){ //<--store data in report object and add to arraylist
-            
+            ap = new AircraftParts(
+                rs.getInt("aircraft.ProgramNo"),
+                rs.getInt("parts.PartNo"),
+                rs.getInt("parts.Inventory"),
+                rs.getString("aircraft.ProgramName"),
+                rs.getString("parts.Vendor")
+            );
+            apA.add(ap);
         }
         
-        //column size needs changed; column size = 2
-        Object[][] apRows = new Object[apA.size()][2];
+        //column size needs changed; column size = 5
+        Object[][] apRows = new Object[apA.size()][5];
         
-        //for loop here
+        for (int i = 0; i < apA.size(); i++){
+            apRows[i][0] = apA.get(i).getProgramNo();
+            apRows[i][1] = apA.get(i).getProgramName();
+            apRows[i][2] = apA.get(i).getPartNo();
+            apRows[i][3] = apA.get(i).getPartInvent();
+            apRows[i][4] = apA.get(i).getPartVendor();
+        }        
         
         //Names need updated
-        String[] apColumnNames = {"Drawing No.","Drawing","Version",
+        String[] apColumnNames = {"Program No.","Program Name","Version",
                                 "Version DateTime", "Reason For Change", 
                                 "Employee No.", "Employee FName", "Employee LName"};
         
