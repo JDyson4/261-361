@@ -289,11 +289,10 @@ public class ECAMDatabase {
                                       "aircraft.ProgramName, " +
                                       "parts.PartNo, " +
                                       "parts.Inventory, " +
-                                      "parts.Vendor, " +
+                                      "parts.Vendor " +
                                "FROM aircraft " +
                                "JOIN aircraftparts ON aircraft.ProgramNo = aircraftparts.ProgramNo " +
-                               "JOIN parts ON aircraftparts.PartNo = parts.PartNo " +
-                               "WHERE parts.PartNo = 1000"); // <-- update query
+                               "JOIN parts ON aircraftparts.PartNo = parts.PartNo"); // <-- update query
         
         ArrayList<AircraftParts> apA = new ArrayList<AircraftParts>();
         AircraftParts ap;
