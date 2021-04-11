@@ -8,18 +8,16 @@ package Model;
  * @author John
  */
 public class CustomerPrograms {
-    private int programNo;
     private int customerNo;
+    private String customerName;
+    private int programNo;
     private String programName;
-    private String customerFName;
-    private String customerLName;
     
-    public CustomerPrograms(int prNo, int custNo, String prName, String custFName, String custLName) {
+    public CustomerPrograms(int prNo, int custNo, String prName, String custName) {
         programNo = prNo;
         customerNo = custNo;
         programName = prName;
-        customerFName = custFName;
-        customerLName = custLName;
+        customerName = custName;
     }
 
     /**
@@ -65,31 +63,17 @@ public class CustomerPrograms {
     }
 
     /**
-     * @return the customerFName
+     * @return the customerName
      */
-    public String getCustomerFName() {
-        return customerFName;
+    public String getCustomerName() {
+        return customerName;
     }
 
     /**
-     * @param customerFName the customerFName to set
+     * @param customerName the customerName to set
      */
-    public void setCustomerFName(String customerFName) {
-        this.customerFName = customerFName;
-    }
-
-    /**
-     * @return the customerLName
-     */
-    public String getCustomerLName() {
-        return customerLName;
-    }
-
-    /**
-     * @param customerLName the customerLName to set
-     */
-    public void setCustomerLName(String customerLName) {
-        this.customerLName = customerLName;
+    public void setCustomerName(String customerName) {
+        this.customerName = customerName;
     }
     
 }
