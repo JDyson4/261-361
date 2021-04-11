@@ -238,23 +238,34 @@ public class ECAMDatabase {
         System.out.println("Retrieved Parts Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT PartNo, " +
+                                      "Inventory, " +
+                                      "Vendor" +
+                               "FROM parts " +
+                               "WHERE Vendor = ''"); // <-- update query
         
         ArrayList<Parts> partsA = new ArrayList<Parts>();
         Parts parts;
         while(rs.next()){ //<--store data in report object and add to arraylist
-            
+            parts = new Parts(
+                rs.getInt("PartNo"),
+                rs.getInt("Inventory"),
+                rs.getString("Vendor")
+            );
+            partsA.add(parts);
         }
         
-        //column size needs changed; column size = 8
-        Object[][] partsRows = new Object[partsA.size()][8];
+        //column size needs changed; column size = 3
+        Object[][] partsRows = new Object[partsA.size()][3];
         
-        //for loop here
+        for (int i = 0; i < partsA.size(); i++){
+            partsRows[i][0] = partsA.get(i).getPartNo();
+            partsRows[i][1] = partsA.get(i).getInventory();
+            partsRows[i][2] = partsA.get(i).getVendor();
+        }
         
         //Names need updated
-        String[] partsColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] partsColumnNames = {"Part No.","Inventory","Vendor"};
         
         ReportTableModel rtm = new ReportTableModel(partsColumnNames,partsRows){
             @Override
@@ -283,8 +294,8 @@ public class ECAMDatabase {
             
         }
         
-        //column size needs changed; column size = 8
-        Object[][] apRows = new Object[apA.size()][8];
+        //column size needs changed; column size = 2
+        Object[][] apRows = new Object[apA.size()][2];
         
         //for loop here
         
