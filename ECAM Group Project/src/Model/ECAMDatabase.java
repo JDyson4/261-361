@@ -242,7 +242,7 @@ public class ECAMDatabase {
                                       "Inventory, " +
                                       "Vendor" +
                                "FROM parts " +
-                               "WHERE Vendor = ''"); // <-- update query
+                               "WHERE Vendor = ''");
         
         ArrayList<Parts> partsA = new ArrayList<Parts>();
         Parts parts;
@@ -286,7 +286,9 @@ public class ECAMDatabase {
         System.out.println("Retrieved Aircraft to Parts Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT aircraftparts.programNo, " +
+                                       "" +
+                               "FROM CUSTOMER"); // <-- update query
         
         ArrayList<AircraftParts> apA = new ArrayList<AircraftParts>();
         AircraftParts ap;
