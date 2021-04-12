@@ -9,7 +9,7 @@ public class CustomerPrograms {
     private int programNo;
     private String programName;
     
-    public CustomerPrograms(int prNo, int custNo, String prName, String custName) {
+    public CustomerPrograms(int custNo, String custName, int prNo, String prName) {
         programNo = prNo;
         customerNo = custNo;
         programName = prName;
