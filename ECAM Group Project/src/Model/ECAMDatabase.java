@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import java.awt.Image;
@@ -18,12 +13,20 @@ import javax.swing.ImageIcon;
 import javax.swing.JTextField;
 import javax.swing.table.AbstractTableModel;
 
+/**
+ * Purpose: Holds custom methods to retrieve reports, insert rows into reports,
+ * and delete rows from reports
+ */
 public class ECAMDatabase {
     
     public ECAMDatabase () {
 
     }
     
+    /**
+     * Purpose: Returns a Connection object connected to the MySQl database
+     * @return 
+     */
     private Connection getConnection(){
         Connection con = null;
         
@@ -42,45 +45,10 @@ public class ECAMDatabase {
     }
     
     /**
-     * TESTING CODE FOR DATETIME FORMATTING
-     * @throws SQLException
-     * @throws ClassNotFoundException 
+     * Purpose: Retrieves Customer to Program report
+     * @return
+     * @throws SQLException 
      */
-    public void getOrders() throws SQLException, ClassNotFoundException {
-        Connection con = getConnection();
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM orders");
-        
-        String orderNo = "";
-        String customerNo = "";
-        String orderDate = "";
-        while(rs.next()){
-            orderNo = rs.getString("orderNo");
-            customerNo = rs.getString("customerNo");
-            orderDate = rs.getString("orderDate");
-            System.out.println(orderNo + " " + customerNo + " " + orderDate.substring(0, orderDate.length() - 2));
-        }
-    }
-    
-    /**
-     * TESTING CODE FOR IMAGE RETRIEVING
-     * 
-     * @param byte[]
-     * @throws SQLException
-     * @throws ClassNotFoundException 
-     */
-    public byte[] getDrawing() throws SQLException, ClassNotFoundException {
-        Connection con = getConnection();
-        Statement stmt = con.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT drawing FROM drawings WHERE drawingNo = 1");
-        
-        byte[] drawing = "hello".getBytes();
-        while(rs.next()){
-            drawing = rs.getBytes("drawing");
-        }
-        return drawing;
-    }
-    
     public AbstractTableModel retrieveCustomerProgramsReport() throws SQLException {
         
         Connection con = getConnection();
@@ -118,6 +86,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Customer to Purchases report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrieveCustomerPurchasesReport() throws SQLException {
         
         Connection con = getConnection(); 
@@ -127,23 +100,30 @@ public class ECAMDatabase {
         System.out.println("Retrieved Customer Purchases Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT customers.CustomerNo, customers.CustomerName, orders.OrderNo, orders.OrderDateTime FROM customers, orders WHERE customers.CustomerNo = orders.CustomerNo");
         
         ArrayList<CustomerPurchases> cpurchA = new ArrayList<>();
         CustomerPurchases cpurch;
-        while(rs.next()){ //<--store data in report object and add to arraylist
-            
+        while(rs.next()){
+            cpurch = new CustomerPurchases(
+                rs.getInt("customers.CustomerNo"),
+                rs.getString("customers.CustomerName"),
+                rs.getInt("orders.OrderNo"),
+                rs.getString("orders.OrderDateTime")     
+            );
+            cpurchA.add(cpurch);
         }
         
-        //column size needs changed; column size = 8
-        Object[][] cpurchRows = new Object[cpurchA.size()][8];
+        Object[][] cpurchRows = new Object[cpurchA.size()][4];
         
-        //for loop here
+        for (int i = 0; i < cpurchA.size(); i++){
+            cpurchRows[i][0] = cpurchA.get(i).getCustomerNo();
+            cpurchRows[i][1] = cpurchA.get(i).getCustomerName();
+            cpurchRows[i][2] = cpurchA.get(i).getOrderNo();
+            cpurchRows[i][3] = cpurchA.get(i).getOrderDateTime();
+        }
         
-        //Names need updated
-        String[] cpurchColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] cpurchColumnNames = {"Customer No.","Customer Name","Order No.","Order DateTime"};
         
         ReportTableModel rtm = new ReportTableModel(cpurchColumnNames,cpurchRows){
             @Override
@@ -155,6 +135,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Open Orders report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrieveOpenOrdersReport() throws SQLException {
         
         Connection con = getConnection();
@@ -164,23 +149,31 @@ public class ECAMDatabase {
         System.out.println("Retrieved Open Orders Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT orders.OrderNo, "
+                                    + "orders.OrderDateTime, "
+                                    + "orders.CustomerNo "
+                             + "FROM orders");
         
         ArrayList<OpenOrders> ooA = new ArrayList<>();
         OpenOrders oo;
-        while(rs.next()){ //<--store data in report object and add to arraylist
-            
+        while(rs.next()){
+            oo = new OpenOrders(
+                rs.getInt("orders.OrderNo"),
+                rs.getString("orders.OrderDateTime"),
+                rs.getInt("orders.CustomerNo")
+            );
+            ooA.add(oo);
         }
-        
-        //column size needs changed; column size = 8
-        Object[][] ooRows = new Object[ooA.size()][8];
-        
-        //for loop here
-        
-        //Names need updated
-        String[] ooColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+
+        Object[][] ooRows = new Object[ooA.size()][3];
+
+        for (int i = 0; i < ooA.size(); i++) {
+            ooRows[i][0] = ooA.get(i).getOrderNo();
+            ooRows[i][1] = ooA.get(i).getOrderDateTime();
+            ooRows[i][2] = ooA.get(i).getCustomerNo();
+        }
+
+        String[] ooColumnNames = {"Order No.","Order DateTime","Customer No."};
         
         ReportTableModel rtm = new ReportTableModel(ooColumnNames,ooRows){
             @Override
@@ -192,6 +185,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Parts to Aircraft report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrievePartsAircraftReport() throws SQLException {
         
         Connection con = getConnection();
@@ -229,6 +227,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Parts report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrievePartsReport() throws SQLException {
         
         Connection con = getConnection();
@@ -245,16 +248,15 @@ public class ECAMDatabase {
         
         ArrayList<Parts> partsA = new ArrayList<Parts>();
         Parts parts;
-        while(rs.next()){ //<--store data in report object and add to arraylist
+        while(rs.next()){
             parts = new Parts(
-                rs.getInt("PartNo"),
-                rs.getInt("Inventory"),
-                rs.getString("Vendor")
+                rs.getInt("parts.PartNo"),
+                rs.getInt("parts.Inventory"),
+                rs.getString("parts.Vendor")
             );
             partsA.add(parts);
         }
         
-        //column size needs changed; column size = 3
         Object[][] partsRows = new Object[partsA.size()][3];
         
         for (int i = 0; i < partsA.size(); i++){
@@ -263,7 +265,6 @@ public class ECAMDatabase {
             partsRows[i][2] = partsA.get(i).getVendor();
         }
         
-        //Names need updated
         String[] partsColumnNames = {"Part No.","Inventory","Vendor"};
         
         ReportTableModel rtm = new ReportTableModel(partsColumnNames,partsRows){
@@ -276,6 +277,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Aircraft to Parts report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrieveAircraftPartsReport() throws SQLException {
         
         Connection con = getConnection();
@@ -299,29 +305,25 @@ public class ECAMDatabase {
         while(rs.next()){ //<--store data in report object and add to arraylist
             ap = new AircraftParts(
                 rs.getInt("aircraft.ProgramNo"),
+                rs.getString("aircraft.ProgramName"),
                 rs.getInt("parts.PartNo"),
                 rs.getInt("parts.Inventory"),
-                rs.getString("aircraft.ProgramName"),
                 rs.getString("parts.Vendor")
             );
             apA.add(ap);
         }
         
-        //column size needs changed; column size = 5
         Object[][] apRows = new Object[apA.size()][5];
         
         for (int i = 0; i < apA.size(); i++){
             apRows[i][0] = apA.get(i).getProgramNo();
             apRows[i][1] = apA.get(i).getProgramName();
             apRows[i][2] = apA.get(i).getPartNo();
-            apRows[i][3] = apA.get(i).getPartInvent();
-            apRows[i][4] = apA.get(i).getPartVendor();
+            apRows[i][3] = apA.get(i).getInventory();
+            apRows[i][4] = apA.get(i).getVendor();
         }        
         
-        //Names need updated
-        String[] apColumnNames = {"Program No.","Program Name","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] apColumnNames = {"Program No.","Program Name","Part No.","Inventory","Vendor"};
         
         ReportTableModel rtm = new ReportTableModel(apColumnNames,apRows){
             @Override
@@ -333,6 +335,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Engineer to Programs report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrieveEngineerProgramsReport() throws SQLException {
         
         Connection con = getConnection();
@@ -395,6 +402,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Engineer to Program Hours report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrieveEngineerProgramHoursReport() throws SQLException {
         
         Connection con = getConnection();
@@ -460,6 +472,11 @@ public class ECAMDatabase {
         return rtm;
     }
     
+    /**
+     * Purpose: Retrieves Engineer to Drawing report
+     * @return
+     * @throws SQLException 
+     */
     public AbstractTableModel retrieveEngineerEngineerDrawingsReport() throws SQLException {
         
         Connection con = getConnection();
@@ -505,7 +522,6 @@ public class ECAMDatabase {
             eedRows[i][2] = eedA.get(i).getEmployeeLName();
             eedRows[i][3] = eedA.get(i).getSkill();
             eedRows[i][4] = eedA.get(i).getJobTitle();
-            System.out.println("JobTitle = " + eedA.get(i).getJobTitle());
             eedRows[i][5] = eedA.get(i).getDrawingNo();
             if (eedA.get(i).getDrawing() != null) {
                 ImageIcon drawing = new ImageIcon(
@@ -530,9 +546,7 @@ public class ECAMDatabase {
     }
     
     /**
-     * Retrieves a report of all status changes made to a specific engineering drawing, 
-     * including the date the change was made and engineer who made it.
-     * 
+     * Purpose: Retrieves Engineer to Drawing Changes report
      * @return
      * @throws SQLException 
      */
@@ -616,43 +630,183 @@ public class ECAMDatabase {
         return dcrtm;
     }
     
+    /**
+     * Purpose: Inserts a row into Customer to Programs report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowCustomerProgramsReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Customer to Purchases report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowCustomerPurchasesReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Open Orders report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowOpenOrdersReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Parts to Aircraft report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowPartsAircraftReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Parts report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowPartsReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Aircraft to Parts report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowAircraftPartsReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Engineer to Programs report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowEngineerProgramsReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Engineer to Program Hours report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowEngineerProgramHoursReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Engineer to Drawing report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowEngineerEngineerDrawingsReport(JTextField value) throws SQLException {
         
     }
     
+    /**
+     * Purpose: Inserts a row into Engineer to Drawing Changes report
+     * @return
+     * @throws SQLException 
+     */
     public void insertRowEngineerDrawingChangesReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Customer to Programs report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowCustomerProgramsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Customer to Purchases report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowCustomerPurchasesReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Open Orders report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowOpenOrdersReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Parts to Aircraft report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowPartsAircraftReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Parts report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowPartsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Aircraft to Parts report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowAircraftPartsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Engineer to Program report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowEngineerProgramsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Engineer to Program Hours report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowEngineerProgramHoursReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Engineer to Drawing report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowEngineerEngineerDrawingsReport(JTextField value) throws SQLException {
+        
+    }
+    
+    /**
+     * Purpose: Deletes a row into Engineer to Drawing Changes report
+     * @return
+     * @throws SQLException 
+     */
+    public void deleteRowEngineerDrawingChangesReport(JTextField value) throws SQLException {
         
     }
 
