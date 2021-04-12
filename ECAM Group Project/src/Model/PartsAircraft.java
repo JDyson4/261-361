@@ -10,10 +10,10 @@ public class PartsAircraft {
     private int inventory;
     private String vendor;
     
-    public PartsAircraft(int prNo, int prtNo, String prName, int invtry, String vndr) {
+    public PartsAircraft(int prNo, String prName, int prtNo, int invtry, String vndr) {
         programNo = prNo;
-        partNo = prtNo;
         programName = prName;
+        partNo = prtNo;
         inventory = invtry;
         vendor = vndr;
     }
