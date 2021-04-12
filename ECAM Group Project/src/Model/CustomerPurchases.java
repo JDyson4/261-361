@@ -1,19 +1,19 @@
-/**
- * 
- */
 package Model;
 
 /**
- *
- * @author RIVER
+ * Purpose: Object to store one row of Customers to Purchases report
  */
 public class CustomerPurchases {
     private int customerNo;
     private String customerName;
+    private int orderNo;
+    private String orderDateTime;
     
-    public CustomerPurchases(int custNo, String custName) {
+    public CustomerPurchases(int custNo, String custName, int ordNo, String ordDT) {
         customerNo = custNo;
         customerName = custName;
+        orderNo = ordNo;
+        orderDateTime = ordDT;
     }
 
     /**
@@ -42,6 +42,34 @@ public class CustomerPurchases {
      */
     public void setCustomerName(String customerName) {
         this.customerName = customerName;
+    }
+
+    /**
+     * @return the orderNo
+     */
+    public int getOrderNo() {
+        return orderNo;
+    }
+
+    /**
+     * @param orderNo the orderNo to set
+     */
+    public void setOrderNo(int orderNo) {
+        this.orderNo = orderNo;
+    }
+
+    /**
+     * @return the orderDateTime
+     */
+    public String getOrderDateTime() {
+        return orderDateTime;
+    }
+
+    /**
+     * @param orderDateTime the orderDateTime to set
+     */
+    public void setOrderDateTime(String orderDateTime) {
+        this.orderDateTime = orderDateTime;
     }
     
 }
