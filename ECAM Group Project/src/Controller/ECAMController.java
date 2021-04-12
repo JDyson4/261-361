@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Controller;
 
 import Model.ECAMModel;
@@ -14,12 +9,12 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JLabel;
 import javax.swing.table.DefaultTableCellRenderer;
+
 /**
- *
- * @author jpdys
+ * Purpose: Used to channel interactions between the Model and View classes
  */
 public class ECAMController {
-    //
+    
     private ECAMModel model;
     private ECAMView view;
     private DefaultTableCellRenderer centerRenderer = new DefaultTableCellRenderer();
@@ -29,7 +24,7 @@ public class ECAMController {
         this.view = view;
         centerRenderer.setHorizontalAlignment(JLabel.CENTER);
         
-        view.getLogin().getExitLabel().addMouseListener( //Exit Label MouseListener
+        view.getLogin().getExitLabel().addMouseListener( //Login Exit Label MouseListener
             new MouseAdapter()
             {
                 @Override
@@ -40,7 +35,7 @@ public class ECAMController {
             }
         );//end JLabel1 end MouseListener
         
-        view.getLogin().getUsernameField().addFocusListener( //Username FocusListener
+        view.getLogin().getUsernameField().addFocusListener( //Login Username FocusListener
             new FocusAdapter()
             {
                 @Override
@@ -53,7 +48,7 @@ public class ECAMController {
             }
         );//end Username FocusListener
         
-        view.getLogin().getPasswordField().addFocusListener( //Password FocusListener
+        view.getLogin().getPasswordField().addFocusListener( //Login Password FocusListener
             new FocusAdapter()
             {
                 @Override
@@ -66,7 +61,7 @@ public class ECAMController {
             }
         );//end Password FocusListener
         
-        view.getLogin().getUsernameField().addMouseListener( //Username KeyListener
+        view.getLogin().getUsernameField().addMouseListener( //Login Username KeyListener
             new MouseAdapter()
             {
                 @Override
@@ -85,7 +80,7 @@ public class ECAMController {
             }
         );//end Username MouseListener
         
-        view.getLogin().getPasswordField().addMouseListener( //Password MouseListener
+        view.getLogin().getPasswordField().addMouseListener( //Login Password MouseListener
             new MouseAdapter()
             {
                 @Override
@@ -99,7 +94,7 @@ public class ECAMController {
             }
         );//end Password MouseListener
         
-        view.getLogin().getSignInButton().addActionListener(//Sign in ActionListener
+        view.getLogin().getSignInButton().addActionListener(//Login Sign in ActionListener
             new ActionListener()
             {
                 @Override
@@ -112,7 +107,7 @@ public class ECAMController {
                             view.getLogin().dispose();
                             //ActionListeners MainFrame
                             ECAMReportFrame mf = new ECAMReportFrame();
-                            mf.getGoButton().addActionListener(
+                            mf.getGoButton().addActionListener( //Go Button Action Listener to JTabel with different reports
                                 new ActionListener()
                                 {
                                     @Override
@@ -137,8 +132,11 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 8; i++){
+                                                for(int i = 0; i < 4; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
+                                                    if (i == 1){
+                                                        mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(300);
+                                                    }
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
                                                 mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
@@ -197,7 +195,7 @@ public class ECAMController {
                                             try {
                                                 mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
                                                 mf.getReportDataTable().setRowHeight(120);
-                                                for(int i = 0; i < 8; i++){
+                                                for(int i = 0; i < 5; i++){
                                                     mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                 }
                                                 mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -271,7 +269,7 @@ public class ECAMController {
                                     }
                                 }
                             );
-                            mf.getSaveItem().addActionListener(
+                            mf.getSaveItem().addActionListener( //Save Menu Item Action Listener
                                 new ActionListener()
                                 {
                                     @Override
@@ -280,7 +278,7 @@ public class ECAMController {
                                     }
                                 }
                             );
-                            mf.getExitItem().addActionListener(
+                            mf.getExitItem().addActionListener( //Exit Menu Item Action Listener
                                 new ActionListener()
                                 {
                                     @Override
@@ -289,7 +287,7 @@ public class ECAMController {
                                     } 
                                 }
                             );
-                            mf.getInsertItem().addActionListener(
+                            mf.getInsertItem().addActionListener( //Insert Menu Item Action Listener
                                 new ActionListener()
                                 {
                                     @Override
@@ -298,7 +296,7 @@ public class ECAMController {
                                     }
                                 }
                             );
-                            mf.getDeleteItem().addActionListener(
+                            mf.getDeleteItem().addActionListener( //Delete Menu Item Action Listener
                                 new ActionListener()
                                 {
                                     @Override
@@ -307,7 +305,7 @@ public class ECAMController {
                                     }
                                 }
                             );
-                            mf.getDeptsComboBox().addActionListener(
+                            mf.getDeptsComboBox().addActionListener( //Dept ComboBox Action Listener
                                 new ActionListener()
                                 {
                                     @Override
@@ -346,7 +344,7 @@ public class ECAMController {
             }
         );//end SignIn ActionListener
         
-        view.getLogin().getUsernameField().addKeyListener(//Username KeyListener
+        view.getLogin().getUsernameField().addKeyListener(//Login Username KeyListener
             new KeyAdapter()
             {
                 @Override
@@ -364,7 +362,7 @@ public class ECAMController {
                                 view.getLogin().dispose();
                                 //ActionListeners on MainFrame
                                 ECAMReportFrame mf = new ECAMReportFrame();
-                                mf.getGoButton().addActionListener(
+                                mf.getGoButton().addActionListener( //Go Button Action Listener to JTabel with different reports
                                     new ActionListener()
                                     {
                                         @Override
@@ -389,8 +387,11 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 4; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
+                                                        if (i == 1){
+                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(300);
+                                                        }
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
                                                     mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
@@ -449,7 +450,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 5; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -523,7 +524,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getSaveItem().addActionListener(
+                                mf.getSaveItem().addActionListener( //Save Menu Item Action Listener
                                     new ActionListener()
                                         {
                                         @Override
@@ -532,7 +533,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getExitItem().addActionListener(
+                                mf.getExitItem().addActionListener( //Exit Menu Item Action Listener
                                     new ActionListener()
                                     {
                                         @Override
@@ -541,7 +542,7 @@ public class ECAMController {
                                         } 
                                     }
                                 );
-                                mf.getInsertItem().addActionListener(
+                                mf.getInsertItem().addActionListener( //Insert Menu Item Action Listener
                                     new ActionListener()
                                         {
                                         @Override
@@ -550,7 +551,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getDeleteItem().addActionListener(
+                                mf.getDeleteItem().addActionListener( //Delete Menu Item Action Listener
                                     new ActionListener()
                                         {
                                         @Override
@@ -559,7 +560,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getDeptsComboBox().addActionListener(
+                                mf.getDeptsComboBox().addActionListener( //Dept ComboBox Action Listener
                                     new ActionListener()
                                     {
                                         @Override
@@ -599,7 +600,7 @@ public class ECAMController {
             }
         );//end Username KeyListener
         
-        view.getLogin().getPasswordField().addKeyListener(//Password KeyListener
+        view.getLogin().getPasswordField().addKeyListener(//Login Password KeyListener
             new KeyAdapter()
             {
                 @Override
@@ -618,7 +619,7 @@ public class ECAMController {
                                 view.getLogin().dispose();
                                 //ActionListener MainFrame
                                 ECAMReportFrame mf = new ECAMReportFrame();
-                                mf.getGoButton().addActionListener(
+                                mf.getGoButton().addActionListener( //Go Button Action Listener to JTabel with different reports
                                     new ActionListener()
                                     {
                                         @Override
@@ -643,8 +644,11 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveCustomerPurchasesReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 4; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
+                                                        if (i == 1){
+                                                            mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(300);
+                                                        }
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
                                                     mf.getReportDataTable().setDefaultRenderer(String.class, centerRenderer);
@@ -703,7 +707,7 @@ public class ECAMController {
                                                 try {
                                                     mf.getReportDataTable().setModel(model.getDB().retrieveAircraftPartsReport());
                                                     mf.getReportDataTable().setRowHeight(120);
-                                                    for(int i = 0; i < 8; i++){
+                                                    for(int i = 0; i < 5; i++){
                                                         mf.getReportDataTable().getColumnModel().getColumn(i).setPreferredWidth(160);
                                                     }
                                                     mf.getReportDataTable().getColumnModel().getColumn(0).setCellRenderer(centerRenderer);
@@ -777,7 +781,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getSaveItem().addActionListener(
+                                mf.getSaveItem().addActionListener( //Save Menu Item Action Listener
                                     new ActionListener()
                                         {
                                         @Override
@@ -786,7 +790,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getExitItem().addActionListener(
+                                mf.getExitItem().addActionListener( //Exit Menu Item Action Listener
                                     new ActionListener()
                                     {
                                         @Override
@@ -795,7 +799,7 @@ public class ECAMController {
                                         } 
                                     }
                                 );
-                                mf.getInsertItem().addActionListener(
+                                mf.getInsertItem().addActionListener( //Insert Menu Item Action Listener
                                     new ActionListener()
                                         {
                                         @Override
@@ -804,7 +808,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getDeleteItem().addActionListener(
+                                mf.getDeleteItem().addActionListener( //Delete Menu Item Action Listener
                                     new ActionListener()
                                         {
                                         @Override
@@ -813,7 +817,7 @@ public class ECAMController {
                                         }
                                     }
                                 );
-                                mf.getDeptsComboBox().addActionListener(
+                                mf.getDeptsComboBox().addActionListener( //Dept ComboBox Action Listener
                                     new ActionListener()
                                     {
                                         @Override
