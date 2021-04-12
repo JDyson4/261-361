@@ -62,9 +62,9 @@ public class ECAMDatabase {
                                     + "customers.CustomerName, "
                                     + "aircraft.ProgramNo, "
                                     + "aircraft.ProgramName, "
-                            + "FROM customers"
-                            + "JOIN customerPrograms ON customerPrograms.CustomerNo = customers.CustomerNo"
-                            + "JOIN aircraft ON aircraft.ProgramNo = customerPrograms.ProgramNo"); 
+                             + "FROM customers"
+                             + "JOIN customerPrograms ON customerPrograms.CustomerNo = customers.CustomerNo"
+                             + "JOIN aircraft ON aircraft.ProgramNo = customerPrograms.ProgramNo"); 
         
         ArrayList<CustomerPrograms> cprogA = new ArrayList<>();
         CustomerPrograms cprog;
