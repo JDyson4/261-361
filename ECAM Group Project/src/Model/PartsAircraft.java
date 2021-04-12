@@ -1,11 +1,7 @@
-/**
- * 
- */
 package Model;
 
 /**
- *
- * @author RIVER
+ * Purpose: Object to store one row of Parts to Aircraft report
  */
 public class PartsAircraft {
     private int programNo;
