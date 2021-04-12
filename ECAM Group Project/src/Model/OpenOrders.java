@@ -1,21 +1,17 @@
-/**
- * 
- */
 package Model;
 
 /**
- *
- * @author RIVER
+ * Purpose: Object to store one row of Open Orders report
  */
 public class OpenOrders {
     private int orderNo;
-    private int customerNo;
     private String orderDateTime;
+    private int customerNo;
     
-    public OpenOrders(int orNo, int custNo, String oDT) {
+    public OpenOrders(int orNo, String oDT, int custNo) {
         orderNo = orNo;
-        customerNo = custNo;
         orderDateTime = oDT;
+        customerNo = custNo;
     }
 
     
