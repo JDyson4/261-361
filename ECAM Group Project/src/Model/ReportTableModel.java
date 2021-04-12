@@ -1,16 +1,11 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package Model;
 
 import javax.swing.Icon;
 import javax.swing.table.AbstractTableModel;
 
 /**
- *
- * @author RIVER
+ * Purpose: Custom AbstractTableModel for all reports beside 
+ * the Engineer to Drawing Changes report and the Engineer to Drawing report
  */
 public class ReportTableModel extends AbstractTableModel {
 
