@@ -58,23 +58,38 @@ public class ECAMDatabase {
         System.out.println("Retrieved Customer Programs Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT customers.CustomerNo, "
+                                    + "customers.CustomerName, "
+                                    + "aircraft.ProgramNo, "
+                                    + "aircraft.ProgramName, "
+                            + "FROM customers"
+                            + "JOIN customers ON customers.CustomerNo = customerPrograms.CustomerNo"
+                            + "JOIN aircraft ON aircraft.ProgramNo = customerPrograms.ProgramNo"); 
         
         ArrayList<CustomerPrograms> cprogA = new ArrayList<>();
         CustomerPrograms cprog;
-        while(rs.next()){ //<--store data in report object and add to arraylist
-            
+        while(rs.next()){
+            cprog = new CustomerPrograms(
+            rs.getInt("customers.CustomerNo"),
+            rs.getString("customers.CustomerName"),
+            rs.getInt("aircraft.ProgramNo"),
+            rs.getString("aircraft.ProgramName")
+            );
         }
+        cprogA.add(cprog);
         
         //column size needs changed; column size = 8
-        Object[][] cprogRows = new Object[cprogA.size()][8];
+        Object[][] cprogRows = new Object[cprogA.size()][4];
         
-        //for loop here
+        for(int i = 0; i < cprogA.size(); i++) {
+            cprogRows[i][0] = cprogA.get(i).getCustomerNo();
+            cprogRows[i][1] = cprogA.get(i).getCustomerName();
+            cprogRows[i][2] = cprogA.get(i).getProgramNo();
+            cprogRows[i][3] = cprogA.get(i).getProgramName();
+        }
         
         //Names need updated
-        String[] cprogColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] cprogColumnNames = {"Customer No.","Customer Name", "Program No.","Program Name"};
         
         ReportTableModel rtm = new ReportTableModel(cprogColumnNames,cprogRows){
             @Override
@@ -199,23 +214,41 @@ public class ECAMDatabase {
         System.out.println("Retrieved Parts to Aircraft Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT * FROM CUSTOMER"); // <-- update query
+        rs = stmt.executeQuery("SELECT aircraft.ProgramNo," +
+                                    "aircraft.ProgramName," +
+                                    "parts.PartNo," +
+                                    "parts.Inventory," +
+                                    "parts.Vendor" +
+                                "FROM aircraft" +
+                                "JOIN aircraft ON aircraft.ProgramNo = aircraftparts.ProgramNo" +
+                                "JOIN parts ON parts.PartNo = aircraftparts.PartNo");
         
         ArrayList<PartsAircraft> paA = new ArrayList<>();
         PartsAircraft pa;
-        while(rs.next()){ //<--store data in report object and add to arraylist
-            
+        while(rs.next()){
+            pa = new PartsAircraft(
+            rs.getInt("aircraft.ProgramNo"),
+            rs.getString("aircraft.ProgramName"),
+            rs.getInt("parts.PartNo"),
+            rs.getInt("parts.Inventory"),
+            rs.getString("parts.Vendor")
+            );
+            paA.add(pa);
         }
         
         //column size needs changed; column size = 8
-        Object[][] paRows = new Object[paA.size()][8];
+        Object[][] paRows = new Object[paA.size()][5];
         
-        //for loop here
+        for(int i = 0; i < paA.size(); i++) {
+            paRows[i][0] = paA.get(i).getProgramNo();
+            paRows[i][1] = paA.get(i).getPartNo();
+            paRows[i][2] = paA.get(i).getProgramName();
+            paRows[i][3] = paA.get(i).getInventory();
+            paRows[i][4] = paA.get(i).getVendor();
+        }
         
         //Names need updated
-        String[] paColumnNames = {"Drawing No.","Drawing","Version",
-                                "Version DateTime", "Reason For Change", 
-                                "Employee No.", "Employee FName", "Employee LName"};
+        String[] paColumnNames = {"Program No.","Program Name","Part No.","Inventory","Vendor"};
         
         ReportTableModel rtm = new ReportTableModel(paColumnNames,paRows){
             @Override
