@@ -1,11 +1,7 @@
-/**
- * 
- */
 package Model;
 
 /**
- *
- * @author Catie
+ * Purpose: Object to store one row of Parts report
  */
 public class Parts {
    
