@@ -1,11 +1,7 @@
-/**
- * 
- */
 package Model;
 
 /**
- *
- * @author John
+ * Purpose: Object to store one row of Customers to Programs report
  */
 public class CustomerPrograms {
     private int customerNo;
