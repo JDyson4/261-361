@@ -100,7 +100,12 @@ public class ECAMDatabase {
         System.out.println("Retrieved Customer Purchases Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT customers.CustomerNo, customers.CustomerName, orders.OrderNo, orders.OrderDateTime FROM customers, orders WHERE customers.CustomerNo = orders.CustomerNo");
+        rs = stmt.executeQuery("SELECT customers.CustomerNo, "
+                                    + "customers.CustomerName, "
+                                    + "orders.OrderNo, "
+                                    + "orders.OrderDateTime "
+                             + "FROM customers, orders "
+                             + "WHERE customers.CustomerNo = orders.CustomerNo");
         
         ArrayList<CustomerPurchases> cpurchA = new ArrayList<>();
         CustomerPurchases cpurch;
