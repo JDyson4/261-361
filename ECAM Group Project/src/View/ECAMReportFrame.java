@@ -5,21 +5,11 @@ import java.util.ArrayList;
 import javax.swing.ImageIcon;
 import javax.swing.table.DefaultTableModel;
 
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 /**
- *
- * @author RIVER
+ * Purpose: Used to display reports to the computer screen
  */
 public class ECAMReportFrame extends javax.swing.JFrame {
     
-    /**
-     * Creates new form JTableTest
-     */
     public ECAMReportFrame() {
         initComponents();
         ImageIcon img = new ImageIcon("FinalLogo2.jpg");
