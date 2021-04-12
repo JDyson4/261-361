@@ -63,7 +63,7 @@ public class ECAMDatabase {
                                     + "aircraft.ProgramNo, "
                                     + "aircraft.ProgramName, "
                             + "FROM customers"
-                            + "JOIN customers ON customers.CustomerNo = customerPrograms.CustomerNo"
+                            + "JOIN customerPrograms ON customerPrograms.CustomerNo = customers.CustomerNo"
                             + "JOIN aircraft ON aircraft.ProgramNo = customerPrograms.ProgramNo"); 
         
         ArrayList<CustomerPrograms> cprogA = new ArrayList<>();
@@ -75,8 +75,9 @@ public class ECAMDatabase {
             rs.getInt("aircraft.ProgramNo"),
             rs.getString("aircraft.ProgramName")
             );
+            cprogA.add(cprog);
         }
-        cprogA.add(cprog);
+        
         
         //column size needs changed; column size = 8
         Object[][] cprogRows = new Object[cprogA.size()][4];
@@ -220,8 +221,8 @@ public class ECAMDatabase {
                                     "parts.Inventory," +
                                     "parts.Vendor" +
                                 "FROM aircraft" +
-                                "JOIN aircraft ON aircraft.ProgramNo = aircraftparts.ProgramNo" +
-                                "JOIN parts ON parts.PartNo = aircraftparts.PartNo");
+                                "JOIN aircraftparts ON aircraftparts.ProgramNo = aircraft.ProgramNo" +
+                                "JOIN parts ON aircraftparts.PartNo = parts.PartNo");
         
         ArrayList<PartsAircraft> paA = new ArrayList<>();
         PartsAircraft pa;
