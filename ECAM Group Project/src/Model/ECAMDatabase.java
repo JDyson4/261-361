@@ -61,9 +61,9 @@ public class ECAMDatabase {
         rs = stmt.executeQuery("SELECT customers.CustomerNo, "
                                     + "customers.CustomerName, "
                                     + "aircraft.ProgramNo, "
-                                    + "aircraft.ProgramName, "
-                             + "FROM customers"
-                             + "JOIN customerPrograms ON customerPrograms.CustomerNo = customers.CustomerNo"
+                                    + "aircraft.ProgramName "
+                             + "FROM customers "
+                             + "JOIN customerPrograms ON customerPrograms.CustomerNo = customers.CustomerNo "
                              + "JOIN aircraft ON aircraft.ProgramNo = customerPrograms.ProgramNo"); 
         
         ArrayList<CustomerPrograms> cprogA = new ArrayList<>();
@@ -220,24 +220,24 @@ public class ECAMDatabase {
         System.out.println("Retrieved Parts to Aircraft Report"); //For testing
         
         stmt = con.createStatement();
-        rs = stmt.executeQuery("SELECT aircraft.ProgramNo," +
-                                    "aircraft.ProgramName," +
-                                    "parts.PartNo," +
-                                    "parts.Inventory," +
-                                    "parts.Vendor" +
-                                "FROM aircraft" +
-                                "JOIN aircraftparts ON aircraftparts.ProgramNo = aircraft.ProgramNo" +
-                                "JOIN parts ON aircraftparts.PartNo = parts.PartNo");
+        rs = stmt.executeQuery("SELECT parts.PartNo, "
+                                    + "parts.Inventory, "
+                                    + "parts.Vendor, "
+                                    + "aircraft.ProgramNo, "
+                                    + "aircraft.ProgramName "
+                + "FROM parts "
+                + "JOIN aircraftparts ON aircraftparts.PartNo = parts.PartNo "
+                + "JOIN aircraft ON aircraft.ProgramNo = aircraftparts.ProgramNo");
         
         ArrayList<PartsAircraft> paA = new ArrayList<>();
         PartsAircraft pa;
         while(rs.next()){
             pa = new PartsAircraft(
-            rs.getInt("aircraft.ProgramNo"),
-            rs.getString("aircraft.ProgramName"),
-            rs.getInt("parts.PartNo"),
-            rs.getInt("parts.Inventory"),
-            rs.getString("parts.Vendor")
+                rs.getInt("parts.PartNo"),
+                rs.getInt("parts.Inventory"),
+                rs.getString("parts.Vendor"),
+                rs.getInt("aircraft.ProgramNo"),
+                rs.getString("aircraft.ProgramName")
             );
             paA.add(pa);
         }
@@ -246,15 +246,15 @@ public class ECAMDatabase {
         Object[][] paRows = new Object[paA.size()][5];
         
         for(int i = 0; i < paA.size(); i++) {
-            paRows[i][0] = paA.get(i).getProgramNo();
-            paRows[i][1] = paA.get(i).getPartNo();
-            paRows[i][2] = paA.get(i).getProgramName();
-            paRows[i][3] = paA.get(i).getInventory();
-            paRows[i][4] = paA.get(i).getVendor();
+            paRows[i][0] = paA.get(i).getPartNo();
+            paRows[i][1] = paA.get(i).getInventory();
+            paRows[i][2] = paA.get(i).getVendor();
+            paRows[i][3] = paA.get(i).getProgramNo();
+            paRows[i][4] = paA.get(i).getProgramName();
         }
         
         //Names need updated
-        String[] paColumnNames = {"Program No.","Program Name","Part No.","Inventory","Vendor"};
+        String[] paColumnNames = {"Part No.","Inventory","Vendor","Program No.","Program Name"};
         
         ReportTableModel rtm = new ReportTableModel(paColumnNames,paRows){
             @Override
@@ -565,7 +565,7 @@ public class ECAMDatabase {
             if (eedA.get(i).getDrawing() != null) {
                 ImageIcon drawing = new ImageIcon(
                         new ImageIcon(eedA.get(i).getDrawing()).getImage()
-                                .getScaledInstance(160, 120, Image.SCALE_SMOOTH));
+                                .getScaledInstance(260, 120, Image.SCALE_SMOOTH));
                 eedRows[i][6] = drawing;
             } else {
                 eedRows[i][6] = null;
@@ -640,7 +640,7 @@ public class ECAMDatabase {
             if (edcA.get(i).getDrawing() != null) {
                 ImageIcon drawing = new ImageIcon(
                         new ImageIcon(edcA.get(i).getDrawing()).getImage()
-                                .getScaledInstance(160, 120, Image.SCALE_SMOOTH));
+                                .getScaledInstance(260, 120, Image.SCALE_SMOOTH));
                 edcRows[i][1] = drawing;
             } else {
                 edcRows[i][1] = null;
