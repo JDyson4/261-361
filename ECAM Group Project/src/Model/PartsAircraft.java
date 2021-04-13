@@ -4,18 +4,19 @@ package Model;
  * Purpose: Object to store one row of Parts to Aircraft report
  */
 public class PartsAircraft {
-    private int programNo;
+
     private int partNo;
-    private String programName;
     private int inventory;
     private String vendor;
+    private int programNo;
+    private String programName;
     
-    public PartsAircraft(int prNo, String prName, int prtNo, int invtry, String vndr) {
-        programNo = prNo;
-        programName = prName;
+    public PartsAircraft(int prtNo, int invtry, String vndr, int prNo, String prName) {
         partNo = prtNo;
         inventory = invtry;
         vendor = vndr;
+        programNo = prNo;
+        programName = prName;
     }
 
     /**
