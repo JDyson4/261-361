@@ -14,6 +14,7 @@ public class ECAMUserInfo {
         user.put("rwm5661", "noiceCar102!");
         user.put("jvd5799", "jdyson");
         user.put("can26", "susieq");
+        user.put("participant", "test");
         user.put("Username", "Password");
         user.put("", "Password");
         user.put("Username", "");
